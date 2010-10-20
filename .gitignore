@@ -1,0 +1,5 @@
+*.gemspec
+*.gem
+magpie.yml
+/mag
+lib/mag

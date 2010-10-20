@@ -1,0 +1,5 @@
+alipay:
+- [test123, secret123]
+
+chinabank:
+- ["20000400", secret456]

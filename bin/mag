@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require "magpie"
+
+Magpie::Server.start
