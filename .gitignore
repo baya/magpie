@@ -1,4 +1,3 @@
-*.gemspec
 *.gem
 magpie.yml
 /mag
