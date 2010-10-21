@@ -7,7 +7,7 @@ require 'active_model'
 
 
 module Magpie
-  VERSION = [0, 8, 6]
+  VERSION = [0, 8, 6, 2]
 
   class << self
     attr_accessor :yml_db

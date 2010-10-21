@@ -17,6 +17,7 @@ EOF
   s.has_rdoc         = 'yard'
   s.extra_rdoc_files = ['README.md']
   s.test_files       = Dir['test/test_*.rb']
+  s.homepage         = 'http://github.com/baya/magpie'
   s.author           = 'jiangguimin'
   s.email            = 'kayak.jiang@gmail.com'
 end

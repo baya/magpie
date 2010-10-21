@@ -43,7 +43,7 @@ class ChinabankModel
 
   def invalid_sign?
     text = @attributes["v_amount"]+@attributes["v_moneytype"]+@attributes["v_oid"]+@attributes["v_mid"]+@attributes["v_url"]+self.key
-    self.sign == Digest::MD5.hexdigest(text) ? false : true
+    self.sign.upcase == Digest::MD5.hexdigest(text).upcase ? false : true
     rescue => e
     true
   end

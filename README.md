@@ -31,6 +31,7 @@ magpie.yml文件用来配置你的商号信息, 假设你在支付宝有个账�
 
 **注意!** 如果你输入mag命令报错, 那可能是因为你的电脑缺少一些magpie需要的gem包, 试着使用下面的命令:
 
+    $ sudo gem install rack
     $ sudo gem install activemode
     $ sudo gem install hpricot
 
@@ -49,11 +50,11 @@ mag命令的更多选项可以通过`mag -h`查看
 
 然后在你开发的商户系统中将支付网关由支付宝的网关`https://www.alipay.com/cooperate/gateway.do`更改为magpie的网关`http://127.0.0.1:9292/alipay`
 
-如果你请求的参数出现错误,你可以通过magpie的日志查看到详细的出错信息, 或者在浏览器上查看出错信息(以xml的格式显示)
+如果你请求的参数出现错误, 你可以通过magpie的日志查看到详细的出错信息, 或者在浏览器上查看出错信息(以xml的格式显示)
 
-如果你的支付请求成功magpie将会模拟支付宝的主动通知模式, 给你的商户系统发送通知, 你需要确保发送给magpie的`notify_url`
+如果你的支付请求成功, magpie将会模拟支付宝的主动通知模式, 给你的商户系统发送通知, 你需要确保发送给magpie的`notify_url`是可用的,
 
-是可用的,magpie将通过这个`notify_url`将支付成功的通知发到你的商户系统中, 这样你就可以避免去支付宝的页面进行真实的支付.
+magpie将通过这个`notify_url`将支付成功的通知发到你的商户系统中, 这样你就可以避免去支付宝的页面进行真实的支付.
 
 对于网银在线, 将支付网关由网银在线的网关`https://pay3.chinabank.com.cn/PayGate`更改为magpie的网关`http://127.0.0.1:9292/chinabank`
 

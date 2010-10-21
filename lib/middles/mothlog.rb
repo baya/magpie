@@ -3,7 +3,7 @@ module Magpie
   class Mothlog
 
     FORMAT = %{%s : "%s" \n}
-    FORMAT_NOTIFY =  %{\t[%s] %s at[%s] (%0.4fms)\nParameters:%s\nResult:%s\n}
+    FORMAT_NOTIFY =  %{Notify to [%s] %s at[%s] (%0.4fms)\nParameters:%s\n\nBusiness result:%s\n\n}
 
     def initialize(app, logger=nil)
       @app = app

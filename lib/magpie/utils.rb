@@ -40,7 +40,7 @@ module Magpie
         notify_res = am.send_notify
         now = Time.now
         env["magpie.notify"] = ["POST", am.notify_url, now.strftime("%d/%b/%Y %H:%M:%S"), now - begin_at, am.notify.inspect, notify_res ]
-        xml_body = build_xml(:is_success => "T")
+        xml_body = build_xml(:is_success => "T",  :business => notify_res)
       end
       xml_body
     end
