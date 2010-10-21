@@ -127,7 +127,7 @@ class AlipayModel
   end
 
   def notify_sign
-    @notify_sign ||= Digest::MD5.hexdigest notify_text
+    @notify_sign ||= Digest::MD5.hexdigest(notify_text).downcase
   end
 
   def notify_text

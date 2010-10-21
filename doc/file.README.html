@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Documentation by YARD 0.6.1</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>Magpie用于模拟支付平台的沙盒功能</h1>
+
+<p><strong>Git</strong>:            <a href="http://github.com/baya/magpie">http://github.com/baya/magpie</a></p>
+
+<p><strong>Author</strong>:         Guimin Jiang</p>
+
+<p><strong>Copyright</strong>:      2010</p>
+
+<p><strong>License</strong>:        MIT License</p>
+
+<p><strong>Latest Version</strong>: 0.8.6.2</p>
+
+<p><strong>Release Date</strong>:   2010-10-20</p>
+
+<h2>快搭</h2>
+
+<pre class="code"><span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='magpie identifier id'>magpie</span>
+</pre>
+
+<p>打开终端,输入:</p>
+
+<pre class="code">$ <span class='mag identifier id'>mag</span> <span class='magpie identifier id'>magpie</span><span class='dot token'>.</span><span class='yml identifier id'>yml</span>
+</pre>
+
+<p>magpie.yml文件用来配置你的商号信息, 假设你在支付宝有个账号:123456, key是:aaabbb, 网银在线有个账号:789789, key是:cccddd, 那么你在magpie.yml中这样写,</p>
+
+<pre class="code"><span class='alipay identifier id'>alipay</span><span class='colon op'>:</span>
+ <span class='minus op'>-</span> <span class='lbrack token'>[</span><span class='string val'>&quot;123456&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;aaabbb&quot;</span><span class='rbrack token'>]</span>
+
+<span class='chinabank identifier id'>chinabank</span><span class='colon op'>:</span>
+ <span class='minus op'>-</span> <span class='lbrack token'>[</span><span class='string val'>&quot;789789&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;cccddd&quot;</span><span class='rbrack token'>]</span>
+</pre>
+
+<p><strong>注意!</strong> 如果你输入mag命令报错, 那可能是因为你的电脑缺少一些magpie需要的gem包, 试着使用下面的命令:</p>
+
+<pre class="code">$ <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='activemode identifier id'>activemode</span>
+$ <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='hpricot identifier id'>hpricot</span>
+</pre>
+
+<p>mag命令默认会在本地9292端口启动http服务, 你可以用-p选项指定端口</p>
+
+<pre class="code"><span class='mag identifier id'>mag</span> <span class='minus op'>-</span><span class='p identifier id'>p</span> <span class='integer val'>2010</span> <span class='magpie identifier id'>magpie</span><span class='dot token'>.</span><span class='yml identifier id'>yml</span>
+</pre>
+
+<p>mag命令的更多选项可以通过<code>mag -h</code>查看</p>
+
+<h2>使用示例</h2>
+
+<p>假设你正在实现支付宝支付的相关代码, 首先启动magpie服务</p>
+
+<pre class="code">$ <span class='mag identifier id'>mag</span> <span class='magpie identifier id'>magpie</span><span class='dot token'>.</span><span class='yml identifier id'>yml</span>
+</pre>
+
+<p>然后在你开发的商户系统中将支付网关由支付宝的网关<code>https://www.alipay.com/cooperate/gateway.do</code>更改为magpie的网关<code>http://127.0.0.1:9292/alipay</code></p>
+
+<p>如果你请求的参数出现错误,你可以通过magpie的日志查看到详细的出错信息, 或者在浏览器上查看出错信息(以xml的格式显示)</p>
+
+<p>如果你的支付请求成功magpie将会模拟支付宝的主动通知模式, 给你商户系统发送通知, 你需要确保发送给magpie的<code>notify_url</code></p>
+
+<p>是可用的,magpie将通过这个<code>notify_url</code>将支付成功的通知发到你的商户系统中, 这样你就可以避免去支付宝的页面进行真实的支付.</p>
+
+<p>对于网银在线, 将支付网关由网银在线的网关<code>https://pay3.chinabank.com.cn/PayGate</code>更改为magpie的网关<code>http://127.0.0.1:9292/chinabank</code></p>
+
+<h2>支持的支付平台</h2>
+
+<ul>
+<li>支付宝(alipay)</li>
+<li>网银在线(chinabank)</li>
+</ul>
+
+
+<h2>使用的项目</h2>
+
+<ul>
+<li><a href="http://piao.fantong.com">饭票</a></li>
+<li><a href="http://tuan.fantong.com">饭团</a></li>
+</ul>
+
+
+<h2>感谢</h2>
+
+<ul>
+<li>potian <a href="http://www.javaeye.com/topic/605707">Rack编程</a>的作者</li>
+<li>liuzihua</li>
+</ul>
+
+
+<h2>Changelog</h2>
+
+<ul>
+<li><p><strong>2010-10-20</strong>: 0.8.6.1 release</p>
+
+<ul>
+<li>支持网银在线</li>
+</ul>
+</li>
+<li><p><strong>2010-10-20</strong>: 0.8.6.1 release</p>
+
+<ul>
+<li>改善README.md的可阅读性</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Copyright</h2>
+
+<p>MAGPIE &copy; 2007-2010 by <a href="mailto:kayak.jiang@gmail.com">Guimin Jiang</a>.
+MAGPIE is licensed under the MIT license except for some files which come
+from the RDoc/Ruby distributions. Please see the <a href="file.COPYING.html" title="COPYING">COPYING</a> documents for more information.</p></div></div>
+    
+    <div id="footer">
+  Generated on Thu Oct 21 14:14:14 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

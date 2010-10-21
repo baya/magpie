@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name            = "magpie"
-  s.version         = "0.8.6"
+  s.version         = "0.8.6.2"
   s.platform        = Gem::Platform::RUBY
   s.summary         = "用ruby语言编写的支付平台测试沙盒"
 
@@ -10,12 +10,12 @@ Magpie模拟了各个支付平台的主动通知交互模式,这个功能可以�
 EOF
 
   s.files            = Dir["*/**/*"] - %w(lib/magpie.yml lib/mag) +
-                        %w(COPYING magpie.gemspec README Rakefile)
+                        %w(COPYING magpie.gemspec README.md Rakefile )
   s.bindir           = 'bin'
   s.executables      << 'mag'
   s.require_paths    = ["lib"]
-  s.has_rdoc         = true
-  s.extra_rdoc_files = ['README']
+  s.has_rdoc         = 'yard'
+  s.extra_rdoc_files = ['README.md']
   s.test_files       = Dir['test/test_*.rb']
   s.author           = 'jiangguimin'
   s.email            = 'kayak.jiang@gmail.com'

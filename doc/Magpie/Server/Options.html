@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Magpie::Server::Options</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (O)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Magpie.html" title="Magpie (module)">Magpie</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Server.html" title="Magpie::Server (class)">Server</a></span></span>
+     &raquo; 
+    <span class="title">Options</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Magpie::Server::Options
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Magpie::Server::Options</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/magpie/server.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse%21-instance_method" title="#parse! (instance method)">- (Object) <strong>parse!</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="parse!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>parse!</strong>(args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/magpie/server.rb', line 5</span>
+
+<span class='def def kw'>def</span> <span class='parse! fid id'>parse!</span><span class='lparen token'>(</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='opt_parser identifier id'>opt_parser</span> <span class='assign token'>=</span> <span class='OptionParser constant id'>OptionParser</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;&quot;</span><span class='comma token'>,</span> <span class='integer val'>24</span><span class='comma token'>,</span> <span class='string val'>'  '</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='opts identifier id'>opts</span><span class='bitor op'>|</span>
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='banner identifier id'>banner</span> <span class='assign token'>=</span> <span class='string val'>&quot;Usage: mag [rack options] [mag config]&quot;</span>
+
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='separator identifier id'>separator</span> <span class='string val'>&quot;&quot;</span>
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='separator identifier id'>separator</span> <span class='string val'>&quot;Rack options:&quot;</span>
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='on identifier id'>on</span><span class='lparen token'>(</span><span class='string val'>&quot;-s&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;--server SERVER&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;serve using SERVER (webrick/mongrel)&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='s identifier id'>s</span><span class='bitor op'>|</span>
+      <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:server</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='s identifier id'>s</span>
+    <span class='rbrace token'>}</span>
+
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='on identifier id'>on</span><span class='lparen token'>(</span><span class='string val'>&quot;-o&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;--host HOST&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;listen on HOST (default: 0.0.0.0)&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='host identifier id'>host</span><span class='bitor op'>|</span>
+      <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:Host</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='host identifier id'>host</span>
+    <span class='rbrace token'>}</span>
+
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='on identifier id'>on</span><span class='lparen token'>(</span><span class='string val'>&quot;-p&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;--port PORT&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;use PORT (default: 9292)&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='port identifier id'>port</span><span class='bitor op'>|</span>
+      <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:Port</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='port identifier id'>port</span>
+    <span class='rbrace token'>}</span>
+
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='on identifier id'>on</span><span class='lparen token'>(</span><span class='string val'>&quot;-D&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;--daemonize&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;run daemonized in the background&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='d identifier id'>d</span><span class='bitor op'>|</span>
+      <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:daemonize</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='d identifier id'>d</span> <span class='integer val'>? </span><span class='true true kw'>true</span> <span class='colon op'>:</span> <span class='false false kw'>false</span>
+    <span class='rbrace token'>}</span>
+
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='on identifier id'>on</span><span class='lparen token'>(</span><span class='string val'>&quot;-P&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;--pid FILE&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;file to store PID (default: rack.pid)&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span>
+      <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:pid</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='f identifier id'>f</span>
+    <span class='rbrace token'>}</span>
+
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='separator identifier id'>separator</span> <span class='string val'>&quot;&quot;</span>
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='separator identifier id'>separator</span> <span class='string val'>&quot;Common options:&quot;</span>
+
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='on_tail identifier id'>on_tail</span><span class='lparen token'>(</span><span class='string val'>&quot;-h&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;--help&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Show this message&quot;</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+      <span class='puts identifier id'>puts</span> <span class='opts identifier id'>opts</span>
+      <span class='exit identifier id'>exit</span>
+    <span class='end end kw'>end</span>
+
+    <span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='on_tail identifier id'>on_tail</span><span class='lparen token'>(</span><span class='string val'>&quot;--version&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;Show version&quot;</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+      <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Magpie #{Magpie.version}&quot;</span>
+      <span class='exit identifier id'>exit</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='opt_parser identifier id'>opt_parser</span><span class='dot token'>.</span><span class='parse! fid id'>parse!</span> <span class='args identifier id'>args</span>
+  <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:yml</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='last identifier id'>last</span> <span class='if if_mod kw'>if</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='last identifier id'>last</span>
+  <span class='options identifier id'>options</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Thu Oct 21 14:14:15 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

@@ -174,7 +174,7 @@ class AlipayTest < Test::Unit::TestCase
                 "trade_no" => am.send(:trade_no),
                 "trade_status" => am.send(:trade_status)
                 )
-    md5_str = Digest::MD5.hexdigest((raw_h.sort.collect{|s|s[0]+"="+s[1].to_s}).join("&")+am.key)
+    md5_str = Digest::MD5.hexdigest((raw_h.sort.collect{|s|s[0]+"="+s[1].to_s}).join("&")+am.key).downcase
     assert_equal raw_sign, md5_str
   end
 

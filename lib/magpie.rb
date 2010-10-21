@@ -25,7 +25,7 @@ module Magpie
 
 
   APP = Rack::Builder.new {
-    use Mothlog
+    use Mothlog, $stderr
 
     map "/alipay" do
       use Alipay
