@@ -76,7 +76,8 @@
 
 <p><strong>注意!</strong> 如果你输入mag命令报错, 那可能是因为你的电脑缺少一些magpie需要的gem包, 试着使用下面的命令:</p>
 
-<pre class="code">$ <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='activemode identifier id'>activemode</span>
+<pre class="code">$ <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='rack identifier id'>rack</span>
+$ <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='activemode identifier id'>activemode</span>
 $ <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='hpricot identifier id'>hpricot</span>
 </pre>
 
@@ -96,11 +97,11 @@ $ <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>g
 
 <p>然后在你开发的商户系统中将支付网关由支付宝的网关<code>https://www.alipay.com/cooperate/gateway.do</code>更改为magpie的网关<code>http://127.0.0.1:9292/alipay</code></p>
 
-<p>如果你请求的参数出现错误,你可以通过magpie的日志查看到详细的出错信息, 或者在浏览器上查看出错信息(以xml的格式显示)</p>
+<p>如果你请求的参数出现错误, 你可以通过magpie的日志查看到详细的出错信息, 或者在浏览器上查看出错信息(以xml的格式显示)</p>
 
-<p>如果你的支付请求成功magpie将会模拟支付宝的主动通知模式, 给你商户系统发送通知, 你需要确保发送给magpie的<code>notify_url</code></p>
+<p>如果你的支付请求成功, magpie将会模拟支付宝的主动通知模式, 给你的商户系统发送通知, 你需要确保发送给magpie的<code>notify_url</code>是可用的,</p>
 
-<p>是可用的,magpie将通过这个<code>notify_url</code>将支付成功的通知发到你的商户系统中, 这样你就可以避免去支付宝的页面进行真实的支付.</p>
+<p>magpie将通过这个<code>notify_url</code>将支付成功的通知发到你的商户系统中, 这样你就可以避免去支付宝的页面进行真实的支付.</p>
 
 <p>对于网银在线, 将支付网关由网银在线的网关<code>https://pay3.chinabank.com.cn/PayGate</code>更改为magpie的网关<code>http://127.0.0.1:9292/chinabank</code></p>
 
@@ -153,7 +154,7 @@ MAGPIE is licensed under the MIT license except for some files which come
 from the RDoc/Ruby distributions. Please see the <a href="file.COPYING.html" title="COPYING">COPYING</a> documents for more information.</p></div></div>
     
     <div id="footer">
-  Generated on Thu Oct 21 14:14:14 2010 by 
+  Generated on Thu Oct 21 19:09:24 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.1 (ruby-1.8.7).
 </div>

@@ -153,12 +153,6 @@ class AlipayTest < Test::Unit::TestCase
     assert am.send(:notify_text) != /quantity=/
   end
 
-  def test_send_notify
-    am = get_am
-    res = am.send_notify
-    assert res.is_a? String
-  end
-
   def test_notify_sign
     am = get_am
     raw_h = notify_params

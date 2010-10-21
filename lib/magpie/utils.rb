@@ -8,9 +8,9 @@ module Magpie
     private
     def send_req_to(gw, req)
       text = case req.request_method
-        when "GET"; get_query(gw, req.query_string)
-        when "POST"; post_query(gw, req.params)
-      end
+             when "GET"; get_query(gw, req.query_string)
+             when "POST"; post_query(gw, req.params)
+             end
       doc = Hpricot text
     end
 
@@ -33,14 +33,14 @@ module Magpie
       if red_text =~ /错误|\d+/
         final_error = get_final_error red_text
         am.valid?
-        xml_body = build_xml(:is_success => "F", :errors => am.errors.merge(:final => final_error))
+        xml_body = build_xml(:payment_success => "F", :errors => am.errors.merge(:final => final_error))
         env["magpie.errors.info"] = am.errors.merge(:final => final_error)
       else
         begin_at = Time.now
-        notify_res = am.send_notify
+        notify_res = send_notify(am.notify_url, am.notify).gsub(/<[^>]*>|<\/[^>]*>/m, '')
         now = Time.now
         env["magpie.notify"] = ["POST", am.notify_url, now.strftime("%d/%b/%Y %H:%M:%S"), now - begin_at, am.notify.inspect, notify_res ]
-        xml_body = build_xml(:is_success => "T",  :business => notify_res)
+        xml_body = build_xml(:payment_success => "T",  :business => notify_res )
       end
       xml_body
     end
@@ -72,6 +72,19 @@ module Magpie
       req.set_form_data params
       res = start_http(url, req)
       res.body
+    end
+
+    # 向商户系统发送通知
+    # @param[String, Hash] url是商户系统用来接收通知的url, notify是支付平台发过来的参数
+    # @return[String] 如果有异常需要你确认url是否有效
+    def send_notify(url, notify)
+      url = URI.parse url
+      timeout(8) do
+        res = Net::HTTP.post_form url, notify
+        res.body
+      end
+    rescue Exception => e
+      "发送通知时出现异常#{e}, 请确认#{url}在你的商户系统中可用"
     end
 
   end

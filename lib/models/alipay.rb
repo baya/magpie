@@ -2,6 +2,7 @@
 
 class AlipayModel
   include ActiveModel::Validations
+
   attr_accessor :service,
   :partner,
   :notify_url,
@@ -111,11 +112,6 @@ class AlipayModel
     }.merge("sign_type" => sign_type, "sign" => notify_sign)
   end
 
-  def send_notify
-    url = URI.parse notify_url
-    res = Net::HTTP.post_form url, self.notify
-    res.body
-  end
 
   private
   def notify_id

@@ -25,7 +25,7 @@ module Magpie
 
 
   APP = Rack::Builder.new {
-    use Mothlog, $stderr
+    use Mothlog
 
     map "/alipay" do
       use Alipay
@@ -42,6 +42,7 @@ module Magpie
     end
 
   }.to_app
+
 
 end
 

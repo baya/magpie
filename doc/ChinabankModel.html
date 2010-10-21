@@ -482,27 +482,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#send_notify-instance_method" title="#send_notify (instance method)">- (Object) <strong>send_notify</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#sign-instance_method" title="#sign (instance method)">- (Object) <strong>sign</strong> </a>
     
 
@@ -549,18 +528,18 @@
       <pre class="lines">
 
 
-37
 38
 39
 40
 41
-42</pre>
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 38</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='@attributes ivar id'>@attributes</span> <span class='assign token'>=</span> <span class='attributes identifier id'>attributes</span>
+   <span class='@attributes ivar id'>@attributes</span> <span class='assign token'>=</span> <span class='attributes identifier id'>attributes</span>
   <span class='attributes identifier id'>attributes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='bitor op'>|</span>
     <span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{name}=&quot;</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='respond_to? fid id'>respond_to?</span> <span class='name identifier id'>name</span>
   <span class='end end kw'>end</span>
@@ -600,12 +579,12 @@
       <pre class="lines">
 
 
-25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 26</span>
 
 <span class='def def kw'>def</span> <span class='remark1 identifier id'>remark1</span>
   <span class='@remark1 ivar id'>@remark1</span>
@@ -640,12 +619,12 @@
       <pre class="lines">
 
 
-25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 26</span>
 
 <span class='def def kw'>def</span> <span class='remark2 identifier id'>remark2</span>
   <span class='@remark2 ivar id'>@remark2</span>
@@ -680,12 +659,12 @@
       <pre class="lines">
 
 
-13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 14</span>
 
 <span class='def def kw'>def</span> <span class='v_amount identifier id'>v_amount</span>
   <span class='@v_amount ivar id'>@v_amount</span>
@@ -720,12 +699,12 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 23</span>
 
 <span class='def def kw'>def</span> <span class='v_md5info identifier id'>v_md5info</span>
   <span class='@v_md5info ivar id'>@v_md5info</span>
@@ -760,12 +739,12 @@
       <pre class="lines">
 
 
-7
 8
-9</pre>
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 8</span>
 
 <span class='def def kw'>def</span> <span class='v_mid identifier id'>v_mid</span>
   <span class='@v_mid ivar id'>@v_mid</span>
@@ -800,12 +779,12 @@
       <pre class="lines">
 
 
-16
 17
-18</pre>
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 17</span>
 
 <span class='def def kw'>def</span> <span class='v_moneytype identifier id'>v_moneytype</span>
   <span class='@v_moneytype ivar id'>@v_moneytype</span>
@@ -840,12 +819,12 @@
       <pre class="lines">
 
 
-10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 11</span>
 
 <span class='def def kw'>def</span> <span class='v_oid identifier id'>v_oid</span>
   <span class='@v_oid ivar id'>@v_oid</span>
@@ -880,12 +859,12 @@
       <pre class="lines">
 
 
-19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 20</span>
 
 <span class='def def kw'>def</span> <span class='v_url identifier id'>v_url</span>
   <span class='@v_url ivar id'>@v_url</span>
@@ -916,13 +895,13 @@
       <pre class="lines">
 
 
-75
 76
 77
-78</pre>
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 76</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='accounts identifier id'>accounts</span>
   <span class='@accounts ivar id'>@accounts</span> <span class='opasgn op'>||=</span> <span class='YAML constant id'>YAML</span><span class='dot token'>.</span><span class='load_file identifier id'>load_file</span><span class='lparen token'>(</span><span class='string val'>'test/partner.yml'</span><span class='rparen token'>)</span><span class='lbrack token'>[</span><span class='string val'>'chinabank'</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='ENV constant id'>ENV</span><span class='lbrack token'>[</span><span class='string val'>'magpie'</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'test'</span>
@@ -953,13 +932,13 @@
       <pre class="lines">
 
 
-65
 66
 67
-68</pre>
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 66</span>
 
 <span class='def def kw'>def</span> <span class='account identifier id'>account</span>
   <span class='@account ivar id'>@account</span> <span class='opasgn op'>||=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='accounts identifier id'>accounts</span><span class='dot token'>.</span><span class='assoc identifier id'>assoc</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='partner identifier id'>partner</span>
@@ -1005,19 +984,19 @@
       <pre class="lines">
 
 
-44
 45
 46
 47
 48
-49</pre>
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 45</span>
 
 <span class='def def kw'>def</span> <span class='invalid_sign? fid id'>invalid_sign?</span>
   <span class='text identifier id'>text</span> <span class='assign token'>=</span> <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='string val'>&quot;v_amount&quot;</span><span class='rbrack token'>]</span><span class='plus op'>+</span><span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='string val'>&quot;v_moneytype&quot;</span><span class='rbrack token'>]</span><span class='plus op'>+</span><span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='string val'>&quot;v_oid&quot;</span><span class='rbrack token'>]</span><span class='plus op'>+</span><span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='string val'>&quot;v_mid&quot;</span><span class='rbrack token'>]</span><span class='plus op'>+</span><span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='string val'>&quot;v_url&quot;</span><span class='rbrack token'>]</span><span class='plus op'>+</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='key identifier id'>key</span>
-  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='sign identifier id'>sign</span> <span class='eq op'>==</span> <span class='Digest constant id'>Digest</span><span class='colon2 op'>::</span><span class='MD5 constant id'>MD5</span><span class='dot token'>.</span><span class='hexdigest identifier id'>hexdigest</span><span class='lparen token'>(</span><span class='text identifier id'>text</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='false false kw'>false</span> <span class='colon op'>:</span> <span class='true true kw'>true</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='sign identifier id'>sign</span><span class='dot token'>.</span><span class='upcase identifier id'>upcase</span> <span class='eq op'>==</span> <span class='Digest constant id'>Digest</span><span class='colon2 op'>::</span><span class='MD5 constant id'>MD5</span><span class='dot token'>.</span><span class='hexdigest identifier id'>hexdigest</span><span class='lparen token'>(</span><span class='text identifier id'>text</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='upcase identifier id'>upcase</span> <span class='integer val'>? </span><span class='false false kw'>false</span> <span class='colon op'>:</span> <span class='true true kw'>true</span>
   <span class='rescue rescue kw'>rescue</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
   <span class='true true kw'>true</span>
 <span class='end end kw'>end</span>
@@ -1040,12 +1019,12 @@
       <pre class="lines">
 
 
-71
 72
-73</pre>
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 72</span>
 
 <span class='def def kw'>def</span> <span class='key identifier id'>key</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='account identifier id'>account</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
@@ -1069,7 +1048,6 @@
       <pre class="lines">
 
 
-80
 81
 82
 83
@@ -1080,10 +1058,11 @@
 88
 89
 90
-91</pre>
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 81</span>
 
 <span class='def def kw'>def</span> <span class='notify identifier id'>notify</span>
   <span class='@notify ivar id'>@notify</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span> <span class='string val'>&quot;v_oid&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='v_oid identifier id'>v_oid</span><span class='comma token'>,</span>
@@ -1124,12 +1103,12 @@
       <pre class="lines">
 
 
-61
 62
-63</pre>
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 62</span>
 
 <span class='def def kw'>def</span> <span class='notify_url identifier id'>notify_url</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='v_url identifier id'>v_url</span>
@@ -1153,48 +1132,15 @@
       <pre class="lines">
 
 
-56
 57
-58</pre>
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 57</span>
 
 <span class='def def kw'>def</span> <span class='partner identifier id'>partner</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='v_mid identifier id'>v_mid</span>
-<span class='end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="send_notify-instance_method">
-  
-    - (<tt>Object</tt>) <strong>send_notify</strong> 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-93
-94
-95
-96
-97</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 93</span>
-
-<span class='def def kw'>def</span> <span class='send_notify identifier id'>send_notify</span>
-  <span class='url identifier id'>url</span> <span class='assign token'>=</span> <span class='URI constant id'>URI</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span> <span class='notify_url identifier id'>notify_url</span>
-  <span class='res identifier id'>res</span> <span class='assign token'>=</span> <span class='Net constant id'>Net</span><span class='colon2 op'>::</span><span class='HTTP constant id'>HTTP</span><span class='dot token'>.</span><span class='post_form identifier id'>post_form</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='notify identifier id'>notify</span>
-  <span class='res identifier id'>res</span><span class='dot token'>.</span><span class='body identifier id'>body</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1215,12 +1161,12 @@
       <pre class="lines">
 
 
-52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/models/chinabank.rb', line 53</span>
 
 <span class='def def kw'>def</span> <span class='sign identifier id'>sign</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='v_md5info identifier id'>v_md5info</span>
@@ -1236,7 +1182,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Oct 21 14:14:14 2010 by 
+  Generated on Thu Oct 21 19:09:24 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.1 (ruby-1.8.7).
 </div>

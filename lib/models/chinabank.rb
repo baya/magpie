@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class ChinabankModel
+
   include ActiveModel::Validations
 
   # 商户编号
@@ -35,7 +36,7 @@ class ChinabankModel
   end
 
   def initialize(attributes = {})
-    @attributes = attributes
+     @attributes = attributes
     attributes.each do |name, value|
       send("#{name}=", value) if respond_to? name
     end
@@ -90,11 +91,6 @@ class ChinabankModel
     }.delete_if { |k, v| v.to_s.length == 0}
   end
 
-  def send_notify
-    url = URI.parse notify_url
-    res = Net::HTTP.post_form url, self.notify
-    res.body
-  end
 
   private
   def notify_sign
