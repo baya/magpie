@@ -9,7 +9,7 @@ Magpie提供了支付宝(alipay), 网银在线(chinabank)的沙盒功能.使用M
 Magpie模拟了各个支付平台的主动通知交互模式,这个功能可以使开发人员不必去支付平台的页面进行真实的支付,而通过Magpie就可以取得支付成功的效果,这样就可以轻松快速地对自己所开发的商户系统进行测试.
 EOF
 
-  s.files            = Dir["*/**/*"] - %w(lib/magpie.yml lib/mag) +
+  s.files            = Dir["{bin/*,lib/magpie/**/*,lib/models/*,lib/middles/*,test/**/*}"] - %w(lib/magpie.yml lib/mag) +
                         %w(COPYING magpie.gemspec README.md Rakefile )
   s.bindir           = 'bin'
   s.executables      << 'mag'

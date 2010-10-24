@@ -66,12 +66,12 @@ class ChinabankTest < Test::Unit::TestCase
   end
 
   def test_key
-    am = ChinabankModel.new(@params)
+    am = Magpie::ChinabankModel.new(@params)
     assert am.key.length > 0
   end
 
   def test_notify_sign
-    am = ChinabankModel.new(@params)
+    am = Magpie::ChinabankModel.new(@params)
     raw_hash = @params.dup
     raw_sign = am.send :notify_sign
     raw_hash.delete("remark2")
@@ -81,7 +81,7 @@ class ChinabankTest < Test::Unit::TestCase
   end
 
   def test_notify
-    am = ChinabankModel.new(@params)
+    am = Magpie::ChinabankModel.new(@params)
     assert am.notify.has_key?("v_oid")
     assert am.notify.has_key?("v_pmode")
     assert am.notify.has_key?("v_pstring")

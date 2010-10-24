@@ -61,12 +61,6 @@ class AlipayTest < Test::Unit::TestCase
   end
 
   def test_validates_numericality
-    get @gateway, @params.merge("price" => -2.00, "total_fee" => "1000000000.00")
-    assert last_response.body.include? "<price>should between 0.01~100000000.00</price>"
-    assert last_response.body.include? "<total_fee>should between 0.01~100000000.00</total_fee>"
-    get @gateway, @params.merge("price" => 0.00, "total_fee" => "100000000.01")
-    assert last_response.body.include? "<price>should between 0.01~100000000.00</price>"
-    assert last_response.body.include? "<total_fee>should between 0.01~100000000.00</total_fee>"
     get @gateway, @params.merge("quantity" => 0)
     assert last_response.body.include? "<quantity>should be integer and between 1~999999</quantity>"
     get @gateway, @params.merge("quantity" => 1.2)
@@ -176,7 +170,7 @@ class AlipayTest < Test::Unit::TestCase
   private
 
   def get_am
-    am = AlipayModel.new(:partner => "test123",
+    am = Magpie::AlipayModel.new(:partner => "test123",
                          :notify_url => "http://ticket.fantong.com:3000/alipay/notify",
                          :return_url => "http://ticket.fantong.com:3000/alipay/feedback",
                          :sign_type => "MD5",

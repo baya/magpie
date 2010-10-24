@@ -32,7 +32,6 @@ magpie.yml文件用来配置你的商号信息, 假设你在支付宝有个账�
 **注意!** 如果你输入mag命令报错, 那可能是因为你的电脑缺少一些magpie需要的gem包, 试着使用下面的命令:
 
     $ sudo gem install rack
-    $ sudo gem install activemode
     $ sudo gem install hpricot
 
 mag命令默认会在本地9292端口启动http服务, 你可以用-p选项指定端口
@@ -82,7 +81,7 @@ Changelog
 - **2010-10-20**: 0.8.6.1 release
   - 支持网银在线
 
-- **2010-10-20**: 0.8.6.1 release
+- **2010-10-20**: 0.8.6.2 release
   - 改善README.md的可阅读性
 
 

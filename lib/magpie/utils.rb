@@ -5,7 +5,14 @@ require 'uri'
 module Magpie
   module Utils
 
-    private
+    def dig(env)
+      status, header, body = @app.call env
+      req = Rack::Request.new env
+      doc = send_req_to @pay_gateway, req
+      red_text = Iconv.iconv("UTF-8//IGNORE","GBK//IGNORE", (doc/@red_xpath).inner_text).to_s
+      return status, header, body, req, red_text
+    end
+
     def send_req_to(gw, req)
       text = case req.request_method
              when "GET"; get_query(gw, req.query_string)
@@ -23,31 +30,32 @@ module Magpie
 
     def hash_to_xml(h = { })
       h.inject(""){ |xml, (k, v)|
-        xml << "<#{k}>"
-        Hash === v ? xml << hash_to_xml(v) : xml << v.to_s
-        xml << "</#{k}>"
+        case v
+        when Hash, String
+          xml << "<#{k}>"
+          xml << (Hash === v ? hash_to_xml(v) : v)
+          xml << "</#{k}>"
+        when Array
+          v.each{ |vv| xml << hash_to_xml(k => vv)}
+          xml
+        end
+
       }
     end
 
     def get_xml_body(env, am, red_text)
-      if red_text =~ /错误|\d+/
-        final_error = get_final_error red_text
-        am.valid?
-        xml_body = build_xml(:payment_success => "F", :errors => am.errors.merge(:final => final_error))
-        env["magpie.errors.info"] = am.errors.merge(:final => final_error)
-      else
+      if red_text.blank?
         begin_at = Time.now
         notify_res = send_notify(am.notify_url, am.notify).gsub(/<[^>]*>|<\/[^>]*>/m, '')
         now = Time.now
         env["magpie.notify"] = ["POST", am.notify_url, now.strftime("%d/%b/%Y %H:%M:%S"), now - begin_at, am.notify.inspect, notify_res ]
-        xml_body = build_xml(:payment_success => "T",  :business => notify_res )
+        xml_body = build_xml(:payment_success => "Yes",  :business => notify_res )
+      else
+        am.valid?
+        xml_body = build_xml(:payment_success => "No", :errors => am.errors.merge(:final => red_text))
+        env["magpie.errors.info"] = am.errors.merge(:final => red_text)
       end
       xml_body
-    end
-
-    # 在具体的中间件中重写
-    def get_final_error(red_text)
-      ""
     end
 
     def start_http(url, req)
@@ -75,13 +83,17 @@ module Magpie
     end
 
     # 向商户系统发送通知
-    # @param[String, Hash] url是商户系统用来接收通知的url, notify是支付平台发过来的参数
-    # @return[String] 如果有异常需要你确认url是否有效
+    # @param [String, Hash] url是商户系统用来接收通知的url, notify是支付平台发过来的参数
+    # @return [String] 如果有异常需要你确认url是否有效
     def send_notify(url, notify)
       url = URI.parse url
       timeout(8) do
         res = Net::HTTP.post_form url, notify
-        res.body
+        case res
+        when Net::HTTPSuccess, Net::HTTPRedirection; res.body
+        else
+          raise "#{res.class}@#{res.code}"
+        end
       end
     rescue Exception => e
       "发送通知时出现异常#{e}, 请确认#{url}在你的商户系统中可用"

@@ -3,8 +3,8 @@ require 'open-uri'
 require 'hpricot'
 require 'iconv'
 require 'rack'
-require 'active_model'
 
+Object.class_eval{def blank?; self.to_s.gsub(/\s/, '').length == 0; end;}
 
 module Magpie
   VERSION = [0, 8, 6, 2]
@@ -21,7 +21,9 @@ module Magpie
   autoload :Mothlog,   "middles/mothlog"
   autoload :Alipay,    "middles/alipay"
   autoload :Chinabank, "middles/chinabank"
+  autoload :Tenpay,    "middles/tenpay"
   autoload :Server,    "magpie/server"
+  autoload :Goose,     "magpie/goose"
 
 
   APP = Rack::Builder.new {
@@ -34,6 +36,11 @@ module Magpie
 
     map "/chinabank" do
       use Chinabank
+      run lambda { |env| [200, { "Content-Type" => "text/xml"}, [""]]}
+    end
+
+    map "/tenpay" do
+      use Tenpay
       run lambda { |env| [200, { "Content-Type" => "text/xml"}, [""]]}
     end
 

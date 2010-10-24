@@ -1,147 +1,108 @@
 # -*- coding: utf-8 -*-
 
-class AlipayModel
-  include ActiveModel::Validations
+module Magpie
 
-  attr_accessor :service,
-  :partner,
-  :notify_url,
-  :return_url,
-  :sign,
-  :sign_type,
-  :subject,
-  :out_trade_no,
-  :payment_type,
-  :show_url,
-  :body,
-  :price,
-  :total_fee,
-  :quantity,
-  :seller_email,
-  :seller_id,
-  :_input_charset
+  class AlipayModel
 
-  validates_presence_of :service, :partner, :notify_url, :return_url, :sign, :sign_type, :subject, :out_trade_no, :payment_type
-  validates_length_of :partner, :maximum => 16
-  validates_length_of :notify_url, :return_url, :maximum => 190
-  validates_length_of :show_url, :maximum => 400
-  validates_length_of :body, :maximum => 1000
-  validates_length_of :out_trade_no, :maximum => 64
-  validates_length_of :payment_type, :maximum => 4
-  validates_format_of :price, :total_fee,
-  :with => /^[0-9]{1,9}\.[0-9]{1,2}$/,
-  :allow_blank => true,
-  :message => "format should be Number(13, 2)"
-  validates_numericality_of :price, :total_fee,
-  :greater_than_or_equal_to => 0.01,
-  :less_than_or_equal_to => 100000000.00,
-  :allow_blank => true,
-  :message => "should between 0.01~100000000.00"
-  validates_numericality_of :quantity,
-  :only_integer => true,
-  :greater_than => 0,
-  :less_than => 1000000,
-  :allow_blank => true,
-  :message => "should be integer and between 1~999999"
-  validates_inclusion_of :_input_charset, :in => %w(utf-8 gb2312), :message => "should be utf-8 or gb2312", :allow_blank => true
+    include Goose
 
-  validate do |am|
-    am.errors[:money] << "price和total_fee不能同时出现" if am.repeat_money?
-    am.errors[:money] << "price and total_fee can not both be blank" if am.money_blank?
-    am.errors[:quantity] << "if price is not blank, must input quantity" if am.price_missing_quantity?
-    am.errors[:seller] << "seller_email and seller_id can not both be blank" if am.seller_blank?
-    am.errors[:sign] << "invalid sign" if am.invalid_sign?
-    am.errors[:partner] << "not exist" if am.missing_partner?
-  end
+    attr_accessor :service, :partner, :notify_url, :return_url, :sign, :sign_type, :subject, :out_trade_no
 
-  def initialize(attributes = {})
-    @attributes = attributes
-    attributes.each do |name, value|
-      send("#{name}=", value) if respond_to? name
+    attr_accessor :payment_type, :show_url, :body, :price, :total_fee, :quantity, :seller_email, :seller_id
+
+    attr_accessor :_input_charset
+
+    goose_validate :presence_attributes, :length_attributes, :format_attributes do |am|
+      am.errors[:money] << "price和total_fee不能同时出现" if am.repeat_money?
+      am.errors[:money] << "price and total_fee can not both be blank" if am.money_blank?
+      am.errors[:quantity] << "if price is not blank, must input quantity" if am.price_missing_quantity?
+      am.errors[:seller] << "seller_email and seller_id can not both be blank" if am.seller_blank?
+      am.errors[:sign] << "invalid sign" if am.invalid_sign?
+      am.errors[:partner] << "not exist" if am.missing_partner?
+      am.errors[:_input_charset] << "should be utf-8 or gb2312" unless am._input_charset.blank? or %w(utf-8 gb2312).member?(am._input_charset)
     end
-  end
 
-  def repeat_money?
-    self.price.to_s.length > 0 and self.total_fee.to_s.length > 0
-  end
+    def repeat_money?
+      self.price.to_s.length > 0 and self.total_fee.to_s.length > 0
+    end
 
-  def price_missing_quantity?
-    self.price.to_s.length > 0 and self.quantity.to_s.length == 0
-  end
+    def price_missing_quantity?
+      self.price.to_s.length > 0 and self.quantity.blank?
+    end
 
-  def missing_partner?
-    return if self.partner.to_s.length == 0
-    self.account == [] ? true : false
-  end
+    def missing_partner?
+      return if self.partner.blank?
+      self.account == [] ? true : false
+    end
 
-  def seller_blank?
-    self.seller_id.to_s.length == 0 and self.seller_email.to_s.length == 0
-  end
+    def seller_blank?
+      self.seller_id.blank? and self.seller_email.blank?
+    end
 
-  def money_blank?
-    self.price.to_s.length == 0 and self.total_fee.to_s.length == 0
-  end
+    def money_blank?
+      self.price.blank? and self.total_fee.blank?
+    end
 
-  def invalid_sign?
-    attrs = @attributes.dup
-    attrs.delete("sign")
-    attrs.delete("sign_type")
-    text = attrs.delete_if{ |k, v| v.to_s.length == 0 }.sort.collect{ |s| s[0] + "=" + URI.decode(s[1]) }.join("&") + self.key
-    self.sign == Digest::MD5.hexdigest(text) ? false : true
-  end
+    def invalid_sign?
+      attrs = @attributes.dup
+      attrs.delete("sign")
+      attrs.delete("sign_type")
+      text = attrs.delete_if{ |k, v| v.blank? }.sort.collect{ |s| s[0] + "=" + URI.decode(s[1]) }.join("&") + self.key
+      self.sign == Digest::MD5.hexdigest(text) ? false : true
+    end
 
-  def account
-    @account ||= self.class.accounts.assoc self.partner
-    @account ||= []
-  end
+    def account
+      @account ||= self.class.accounts.assoc self.partner
+      @account ||= []
+    end
 
-  def key
-    self.account[1].to_s
-  end
+    def key
+      self.account[1].to_s
+    end
 
-  def self.accounts
-    @accounts ||= YAML.load_file('test/partner.yml')['alipay'] if ENV['magpie'] == 'test'
-    @accounts ||= Magpie.yml_db['alipay']
-  end
-
-
-  def notify
-    @notify ||= notify_attrs.inject({ }){ |notify, attr|
-      notify[attr] = self.send(attr)
-      notify
-    }.merge("sign_type" => sign_type, "sign" => notify_sign)
-  end
+    def self.accounts
+      @accounts ||= YAML.load_file('test/partner.yml')['alipay'] if ENV['magpie'] == 'test'
+      @accounts ||= Magpie.yml_db['alipay']
+    end
 
 
-  private
-  def notify_id
-    @notify_id ||= Time.now.to_i
-  end
+    def notify
+      @notify ||= notify_attrs.inject({ }){ |notify, attr|
+        notify[attr] = self.send(attr)
+        notify
+      }.merge("sign_type" => sign_type, "sign" => notify_sign)
+    end
 
-  def notify_time
-    @notify_time ||= Time.now.strftime("%Y-%m-%d %H:%M:%S")
-  end
 
-  def notify_sign
-    @notify_sign ||= Digest::MD5.hexdigest(notify_text).downcase
-  end
+    private
+    def notify_id
+      @notify_id ||= Time.now.to_i
+    end
 
-  def notify_text
-     @notify_text ||= notify_attrs.sort.collect{ |attr|
-      "#{attr}=#{self.send(attr)}"
-    }.join("&") + self.key
-  end
+    def notify_time
+      @notify_time ||= Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    end
 
-  def trade_no
-    @trade_no ||= Time.now.to_i.to_s + rand(1000000).to_s
-  end
+    def notify_sign
+      @notify_sign ||= Digest::MD5.hexdigest(notify_text).downcase
+    end
 
-  def trade_status
-    @trade_status ||= %w(TRADE_FINISHED TRADE_SUCCESS)[rand(2)]
-  end
+    def notify_text
+      @notify_text ||= notify_attrs.sort.collect{ |attr|
+        "#{attr}=#{self.send(attr)}"
+      }.join("&") + self.key
+    end
 
-  def notify_attrs
-    @notify_attrs ||= %w{ notify_id
+    def trade_no
+      @trade_no ||= Time.now.to_i.to_s + rand(1000000).to_s
+    end
+
+    def trade_status
+      @trade_status ||= %w(TRADE_FINISHED TRADE_SUCCESS)[rand(2)]
+    end
+
+    def notify_attrs
+      @notify_attrs ||= %w{ notify_id
         notify_time
         trade_no
         out_trade_no
@@ -162,7 +123,35 @@ class AlipayModel
         gmt_refund
         use_coupon
       }.select{ |attr| self.respond_to?(attr, true) && self.send(attr).to_s.length > 0 }
-  end
+    end
 
+
+    def presence_attributes
+      [:service, :partner, :notify_url, :return_url, :sign, :sign_type, :subject, :out_trade_no, :payment_type].each {|attr|
+        self.errors[attr] << "can't be blank" if self.send(attr).blank?
+      }
+    end
+
+    def length_attributes
+      errors[:partner] << length_error_msg(16) if self.partner.to_s.length > 16
+      [:notify_url, :return_url].each { |attr| self.errors[attr] << length_error_msg(190) if self.send(attr).to_s.length > 190}
+      errors[:show_url] << length_error_msg(400) if self.show_url.to_s.length > 400
+      errors[:body] << length_error_msg(1000) if body.to_s.length > 1000
+      errors[:out_trade_no] << length_error_msg(64) if out_trade_no.to_s.length > 64
+      errors[:payment_type] << length_error_msg(4) if payment_type.to_s.length > 4
+    end
+
+    def format_attributes
+      [:price, :total_fee].each { |attr|
+        self.errors[attr] << "format should be Number(13, 2)" unless self.send(attr).blank? or self.send(attr) =~  /^[0-9]{1,9}\.[0-9]{1,2}$/
+      }
+      self.errors[:quantity] << "should be integer and between 1~999999" unless self.quantity.blank? or self.quantity =~ /^[1-9]{1,6}$/
+    end
+
+    def length_error_msg(length)
+      "is too long (maximum is #{length} characters)"
+    end
+
+  end
 
 end
