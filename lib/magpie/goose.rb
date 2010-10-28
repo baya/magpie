@@ -45,7 +45,7 @@ module Magpie
         attrs, options = parse_options(attrs)
         attrs.each do |attr|
           goose_validate { |am|
-            am.errors[attr] << options[:msg] || "格式错误" unless am.send(attr) =~ options[:with] or (options[:allow_blank] and  am.send(attr).blank?)
+            am.errors[attr] << (options[:msg] || "格式错误") unless am.send(attr) =~ options[:with] or (options[:allow_blank] and  am.send(attr).blank?)
           }
         end
 
@@ -58,7 +58,7 @@ module Magpie
         attrs.each do |attr|
           goose_validate { |am|
             attr_length = am.send(attr).to_s.length
-            am.errors[attr] << options[:msg] || "长度错误" unless max_length.blank? or (attr_length >= min_length and attr_length <= max_length) or (options[:allow_blank] and am.send(attr).blank?)
+            am.errors[attr] << (options[:msg] || "长度错误") unless max_length.blank? or (attr_length >= min_length and attr_length <= max_length) or (options[:allow_blank] and am.send(attr).blank?)
           }
         end
       end

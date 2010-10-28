@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 module Magpie
   class Server < Rack::Server
@@ -29,6 +30,10 @@ module Magpie
             options[:pid] = f
           }
 
+          opts.on("-M", "--mode MODE", "开启magpie模式选项(bird, snake, 默认模式是bird)"){ |mode|
+            options[:mode] = mode
+          }
+
           opts.separator ""
           opts.separator "Common options:"
 
@@ -49,17 +54,19 @@ module Magpie
     end
 
     def app
-      Magpie::APP
+      #BIRD_APP
+      SNAKE_APP
     end
 
     def default_options
       {
         :environment => "development",
-        :pid         => nil,
+        :pid         => "magpie.pid",
         :Port        => 9292,
         :Host        => "0.0.0.0",
         :AccessLog   => [],
-        :yml         => "magpie.yml"
+        :yml         => "magpie.yml",
+        :mode        => "bird"
       }
     end
 

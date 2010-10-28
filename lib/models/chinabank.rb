@@ -4,6 +4,9 @@ module Magpie
   class ChinabankModel
 
     include Goose
+    include Mouse
+
+    set_accounts_kind :chinabank
 
     attr_accessor :v_mid, :v_oid, :v_amount, :v_moneytype, :v_url, :v_md5info, :remark1, :remark2
 
@@ -34,21 +37,6 @@ module Magpie
     # 商家系统用来处理网银支付结果的url
     def notify_url
       self.v_url
-    end
-
-    def account
-      @account ||= self.class.accounts.assoc self.partner
-      @account ||= []
-    end
-
-
-    def key
-      self.account[1].to_s
-    end
-
-    def self.accounts
-      @accounts ||= YAML.load_file('test/partner.yml')['chinabank'] if ENV['magpie'] == 'test'
-      @accounts ||= Magpie.yml_db['chinabank']
     end
 
     def notify

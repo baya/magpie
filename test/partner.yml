@@ -3,3 +3,6 @@ alipay:
 
 chinabank:
 - ["20000400", secret456]
+
+tenpay:
+- ["314159", secret789]

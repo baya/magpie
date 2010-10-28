@@ -5,6 +5,9 @@ module Magpie
   class AlipayModel
 
     include Goose
+    include Mouse
+
+    set_accounts_kind :alipay
 
     attr_accessor :service, :partner, :notify_url, :return_url, :sign, :sign_type, :subject, :out_trade_no
 
@@ -51,26 +54,15 @@ module Magpie
       self.sign == Digest::MD5.hexdigest(text) ? false : true
     end
 
-    def account
-      @account ||= self.class.accounts.assoc self.partner
-      @account ||= []
-    end
-
-    def key
-      self.account[1].to_s
-    end
-
-    def self.accounts
-      @accounts ||= YAML.load_file('test/partner.yml')['alipay'] if ENV['magpie'] == 'test'
-      @accounts ||= Magpie.yml_db['alipay']
-    end
-
-
     def notify
       @notify ||= notify_attrs.inject({ }){ |notify, attr|
         notify[attr] = self.send(attr)
         notify
       }.merge("sign_type" => sign_type, "sign" => notify_sign)
+    end
+
+    def notify_to_query
+      self.notify.map{ |k, v| "#{k}=#{v}"}.join("&")
     end
 
 

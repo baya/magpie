@@ -4,17 +4,29 @@ $:.unshift(File.dirname(__FILE__) + "/.." + "/lib")
 
 require 'helper'
 
+Magpie::TenpayModel.class_eval{ set_accounts_kind :tenpay, :env => ENV['magpie']}
+
 class TenpayTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    Magpie::APP
+    Magpie::BIRD_APP
   end
 
   def setup
-    @params = { "cmdno" => "1"}
-    @gateway = "/tenpay/cgi-bin/v3.0/payservice.cgi"
     @accounts = YAML.load_file("test/partner.yml")["tenpay"]
+    @params = { "cmdno" => "1",
+      "date" => "20101025",
+      "bargainor_id" => @accounts[0][0],
+      "transaction_id" => "#{@accounts[0][0]}2010102512345678910",
+      "sp_billno" => "1111",
+      "total_fee" => "1200",
+      "fee_type"  => 1,
+      "return_url" => "http://ticket.fantong.com:3000/tenpay/notify_url",
+      "attach" => "text",
+      "spbill_create_ip" => "127.0.0.1"
+    }
+    @gateway = "/tenpay/cgi-bin/v3.0/payservice.cgi"
   end
 
   def test_return_xml
@@ -60,6 +72,39 @@ fee_type return_url attach spbill_create_ip sign).each do |attr|
     assert last_response.body.include?(fee_type_error_msg)
     post @gateway, @params.merge("fee_type" => 1)
     assert !last_response.body.include?(fee_type_error_msg)
+    post @gateway, @params.merge("spbill_create_ip" => "187.25.32")
+    assert last_response.body.include?(spbill_create_ip_error_msg)
+    post @gateway, @params.merge("spbill_create_ip" => "187.25.32.999")
+    assert last_response.body.include?(spbill_create_ip_error_msg)
+    post @gateway, @params.merge("spbill_create_ip" => "127.0.0.1")
+    assert !last_response.body.include?(spbill_create_ip_error_msg)
+  end
+
+  def test_validates_sign
+    post @gateway, @params.merge("sign" => "aaaaa")
+    assert last_response.body.include?(sign_should_upcase)
+    post @gateway, @params.merge("sign" => "AAAAA")
+    assert !last_response.body.include?(sign_should_upcase)
+    text = %w(cmdno date bargainor_id transaction_id sp_billno total_fee fee_type return_url attach spbill_create_ip ).map {|attr|
+      "#{attr}=#{@params[attr]}" unless @params[attr].blank?
+    }.join("&")
+    invalid_sign = Digest::MD5.hexdigest(text).upcase
+    post @gateway, @params.merge("sign" => invalid_sign)
+    assert last_response.body.include?("<sign>invalid sign</sign>")
+    sign = Digest::MD5.hexdigest(text + "&key=" + @accounts[0][1]).upcase
+    post @gateway, @params.merge("sign" => sign)
+    assert !last_response.body.include?("<sign>invalid sign</sign>")
+  end
+
+  def test_notify_sign
+    am = Magpie::TenpayModel.new(@params)
+    assert am.pay_result == "0"
+    @params["pay_result"] = am.pay_result
+     text = %w(cmdno pay_result date transaction_id sp_billno total_fee fee_type attach).map {|attr|
+      "#{attr}=#{@params[attr]}" unless @params[attr].blank?
+    }.join("&") + "&key=" + @accounts[0][1]
+    sign = Digest::MD5.hexdigest(text).upcase
+    assert_equal sign, am.notify_sign.upcase
   end
 
   private
@@ -80,6 +125,13 @@ fee_type return_url attach spbill_create_ip sign).each do |attr|
     "<fee_type>目前只支持人民币,请填1</fee_type>"
   end
 
+  def spbill_create_ip_error_msg
+    "<spbill_create_ip>格式错误</spbill_create_ip>"
+  end
+
+  def sign_should_upcase
+    "<sign>sign签名必须大写</sign>"
+  end
 
 
 end

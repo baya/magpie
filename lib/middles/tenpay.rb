@@ -10,6 +10,7 @@ module Magpie
       @app = app
       @pay_gateway = pay_gateway
       @red_xpath = "//div[@id='error-info']"
+      @error_xpath = "//td[@class='font_14']"
     end
 
     def call(env)

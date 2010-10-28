@@ -3,13 +3,14 @@ $:.unshift(File.dirname(__FILE__))
 $:.unshift(File.dirname(__FILE__) + "/.." + "/lib")
 
 require 'helper'
-require 'models/chinabank'
 
+
+Magpie::ChinabankModel.class_eval{ set_accounts_kind :chinabank, :env => ENV['magpie']}
 class ChinabankTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    Magpie::APP
+    Magpie::BIRD_APP
   end
 
   def setup

@@ -1,0 +1,14 @@
+<div id="Header">
+  <div id="loger">支付宝</div>
+</div>
+
+<div id="info">
+  <div class="ErrorInfo">
+    <strong>请求失败</strong>
+    <ul>
+     <% @am.errors.each do |k, v| %>
+      <li><%="#{k}:#{v.join(";")}" %></li>
+     <% end %>
+    </ul>
+  </div>
+</div>

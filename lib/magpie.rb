@@ -19,14 +19,17 @@ module Magpie
 
   autoload :Utils,     "magpie/utils"
   autoload :Mothlog,   "middles/mothlog"
+  autoload :Snake,     "middles/snake"
   autoload :Alipay,    "middles/alipay"
   autoload :Chinabank, "middles/chinabank"
   autoload :Tenpay,    "middles/tenpay"
   autoload :Server,    "magpie/server"
   autoload :Goose,     "magpie/goose"
+  autoload :Mouse,     "magpie/mouse"
 
 
-  APP = Rack::Builder.new {
+
+  BIRD_APP = Rack::Builder.new {
     use Mothlog
 
     map "/alipay" do
@@ -48,7 +51,20 @@ module Magpie
       run lambda{ |env| [200, {"Content-Type" => "text/html"}, ["magpie"]]}
     end
 
-  }.to_app
+  }
+
+  SNAKE_APP = Rack::Builder.new {
+
+    use Rack::ContentType, "text/html"
+    use Rack::ContentLength
+    use Mothlog
+
+    use Snake do |snake|
+      snake.tongue :alipay, :states => [:index], :actions => [:pay]
+    end
+
+    run lambda { |env| [200, { }, [""]]}
+  }
 
 
 end

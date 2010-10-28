@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 $:.unshift(File.dirname(__FILE__))
 $:.unshift(File.dirname(__FILE__) + "/.." + "/lib")
+
 require 'helper'
 
+Magpie::AlipayModel.class_eval{ set_accounts_kind :alipay, :env => ENV['magpie']}
 class AlipayTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    Magpie::APP
+    Magpie::BIRD_APP
   end
 
   def setup
@@ -20,7 +22,7 @@ class AlipayTest < Test::Unit::TestCase
     get @gateway, @params
     assert last_response.ok?
     assert last_response.body.include? "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-    assert last_response.headers["Content-type"], "text/xml"
+    assert_equal last_response.headers["Content-type"], "text/xml"
   end
 
   def test_return_final_error
