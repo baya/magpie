@@ -57,6 +57,22 @@ module Magpie
       Digest::MD5.hexdigest(text).upcase
     end
 
+    def notify_url
+      self.return_url
+    end
+
+    def notify
+      @notify ||= { "cmdno" => cmdno,
+        "pay_result"     => pay_result,
+        "date"           => date,
+        "transaction_id" => transaction_id,
+        "sp_billno"      => sp_billno,
+        "total_fee"      => total_fee,
+        "fee_type"       => fee_type,
+        "attach"         => attach
+      }
+    end
+
     def pay_result
       @pay_result ||= "0"
     end

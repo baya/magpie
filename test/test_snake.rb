@@ -5,6 +5,7 @@ $:.unshift(File.dirname(__FILE__) + "/.." + "/lib")
 require 'helper'
 
 Magpie::AlipayModel.class_eval{ set_accounts_kind :alipay, :env => ENV['magpie']}
+
 class SnakeTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
@@ -26,6 +27,12 @@ class SnakeTest < Test::Unit::TestCase
   def test_alipay_pay
     post "/alipay", { }
     assert last_response.ok?
+  end
+
+  def test_static_file
+    get "/images/errors.gif"
+    #assert last_response.ok?
+    #assert last_response.body.size > 0
   end
 
 end

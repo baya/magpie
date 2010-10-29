@@ -61,9 +61,9 @@ module Magpie
       }.merge("sign_type" => sign_type, "sign" => notify_sign)
     end
 
-    def notify_to_query
-      self.notify.map{ |k, v| "#{k}=#{v}"}.join("&")
-    end
+    #def notify_to_query
+      #self.notify.map{ |k, v| "#{k}=#{v}"}.join("&")
+    #end
 
 
     private

@@ -26,6 +26,7 @@ module Magpie
   autoload :Server,    "magpie/server"
   autoload :Goose,     "magpie/goose"
   autoload :Mouse,     "magpie/mouse"
+  autoload :Dung,      "models/dung"
 
 
 
@@ -57,10 +58,12 @@ module Magpie
 
     use Rack::ContentType, "text/html"
     use Rack::ContentLength
-    use Mothlog
+    use Rack::Static, :urls => ["/images"], :root => File.join(Dir.pwd, "..", "static")
 
     use Snake do |snake|
-      snake.tongue :alipay, :states => [:index], :actions => [:pay]
+      snake.tongue :alipay,    :states => [:index], :actions => [:pay]
+      snake.tongue :chinabank, :states => [:index], :actions => [:pay, :index]
+      snake.tongue :tenpay,    :states => [:index], :actions => [:pay, :index]
     end
 
     run lambda { |env| [200, { }, [""]]}
