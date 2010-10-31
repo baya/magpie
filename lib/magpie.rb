@@ -61,9 +61,10 @@ module Magpie
     use Rack::Static, :urls => ["/images"], :root => File.join(Dir.pwd, "..", "static")
 
     use Snake do |snake|
-      snake.tongue :alipay,    :states => [:index], :actions => [:pay]
-      snake.tongue :chinabank, :states => [:index], :actions => [:pay, :index]
-      snake.tongue :tenpay,    :states => [:index], :actions => [:pay, :index]
+      snake.tongue :alipay,    :states => :index
+      snake.tongue :chinabank, :states => :index, :actions => :index
+      snake.tongue :tenpay,    :states => :index, :actions => :index
+      snake.tongue :order,     :actions => :pay
     end
 
     run lambda { |env| [200, { }, [""]]}

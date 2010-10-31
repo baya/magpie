@@ -1,25 +1,4 @@
-<style type="text/css">
-  body {
-  font-family:arial,helvetica,clean,sans-serif;
-  font-size:12px;
-  font-size-adjust:none;
-  font-style:normal;
-  font-variant:normal;
-  font-weight:normal;
-  line-height:1.231;
-  }
-  #wrap{width:910px;text-align:left;margin:0 auto;}
-  .summary{background:#F0F3F5 none repeat scroll 0 0;margin-top:28px;padding:16px 22px 18px;;}
-  p.strong{font-weight:bold;}
-  #amount{color:#FF3300;font-size:30px;margin:0 5px;}
-  #amount sub{font-size:14px;vertical-align:baseline;}
-  .trade-title{margin:5px 0 0;}
-  .summary p{font-size:14px;}
-  #trade-list{padding-top:8px;}
-  #trade-list dd{clear:both;left:70px;position:relative;top:-18px;}
-  dt{font-weight:bold;}
-  .Pad{padding-top:20px;}
-</style>
+
 <div id="wrap">
   <div class="summary dhide" id="s" style="display: block;">
     <p class="strong">本次交易额<strong id="amount"><%= @dung.total_fee %><sub> 元</sub></strong>将支付给<span id="merchant"><%= @dung.merchant %></span>
@@ -27,8 +6,10 @@
     <div class="trade-title">
       <p>您购买的是：<label class="t-open" id="trade-switch"></label><a onmouseout="this.style.color='#07679c'" onmouseover="this.style.color='#ff7e00'" style="text-decoration: underline; color: rgb(7, 103, 156);" class="close-list" id="trade-exhibit"><%= @dung.subject %></a></p>
       <dl id="trade-list" style="display: block;">
-        <dt>商品名称：</dt>
-        <dd><%= @dung.subject %></dd>
+        <% unless @dung.subject.blank? %>
+          <dt>商品名称：</dt>
+          <dd><%= @dung.subject %></dd>
+        <% end %>
         <dt>交易对方：</dt>
         <dd><%= @dung.merchant %></dd>
         <dt>交易类型：</dt>
@@ -42,9 +23,10 @@
   </div>
 
   <div class="Pad" id="comfirm">
-    <form action="<%= pay_url(@dung.name)%>" method="post" target="_blank">
+    <form action="/order/pay" method="post" target="_blank">
       <input type="hidden" value="<%= @dung.notify_url%>" name="notify_url" />
       <input type="hidden" value="<%= @dung.notify_to_query %>" name="notify" />
+      <input type="hidden" value="<%= @dung.kind %>" name="notify_kind" />
       <input type="submit" value="确认无误, 付款"/>
     </form>
   </div>

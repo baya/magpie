@@ -17,8 +17,8 @@ module Magpie
 
     def send_req_to(gw, req)
       text = case req.request_method
-             when "GET"; get_query(gw, req.query_string)
-             when "POST"; post_query(gw, req.params)
+             when "GET"; get_query(gw, req.query_string).body
+             when "POST"; post_query(gw, req.params).body
              end
       doc = Hpricot text
     end
@@ -48,7 +48,10 @@ module Magpie
     def get_xml_body(env, am, red_text)
       if red_text.blank?
         begin_at = Time.now
-        notify_res = send_notify(am.notify_url, am.notify).gsub(/<[^>]*>|<\/[^>]*>/m, '')
+        notify_res = case am
+                     when AlipayModel, ChinabankModel; send_notify("POST", am.notify_url, am.notify).gsub(/<[^>]*>|<\/[^>]*>/m, '')
+                     when TenpayModel; send_notify("GET", am.notify_url, am.notify_string).gsub(/<[^>]*>|<\/[^>]*>/m, '')
+                     end
         now = Time.now
         env["magpie.notify"] = ["POST", am.notify_url, now.strftime("%d/%b/%Y %H:%M:%S"), now - begin_at, am.notify.inspect, notify_res ]
         xml_body = build_xml(:payment_success => "Yes",  :business => notify_res )
@@ -73,7 +76,6 @@ module Magpie
       url = URI.parse(url + "?" + q_string)
       req = Net::HTTP::Get.new("#{url.path}?#{url.query}")
       res = start_http(url, req)
-      res.body
     end
 
     def post_query(url, params)
@@ -81,16 +83,17 @@ module Magpie
       req = Net::HTTP::Post.new(url.path)
       req.set_form_data params
       res = start_http(url, req)
-      res.body
     end
 
     # 向商户系统发送通知
-    # @param [String, Hash] url是商户系统用来接收通知的url, notify是支付平台发过来的参数
+    # @param [String, String, Hash] url是商户系统用来接收通知的url, notify是支付平台发过来的参数
     # @return [String] 如果有异常需要你确认url是否有效
-    def send_notify(url, notify)
-      url = URI.parse url
+    def send_notify(method, url, notify)
       timeout(8) do
-        res = Net::HTTP.post_form url, notify
+        res = case method.to_s.upcase
+              when "GET"; get_query(url, notify)
+              when "POST"; post_query(url, notify)
+              end
         case res
         when Net::HTTPSuccess, Net::HTTPRedirection; res.body
         else
@@ -98,7 +101,7 @@ module Magpie
         end
       end
     rescue Exception => e
-      "发送通知时出现异常#{e}, 请确认#{url}在你的商户系统中可用"
+      "发送通知时出现异常#{e}, 请确认#{url}在你的商户系统中可用, 比如#{url}是否可以#{method.upcase}方式接收其他应用的请求"
     end
 
   end

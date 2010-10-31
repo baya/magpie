@@ -30,7 +30,7 @@ module Magpie
             options[:pid] = f
           }
 
-          opts.on("-M", "--mode MODE", "开启magpie模式选项(bird, snake, 默认模式是bird)"){ |mode|
+          opts.on("-M", "--mode MODE", "开启magpie模式选项(snake, bird 默认模式是snake)"){ |mode|
             options[:mode] = mode
           }
 
@@ -54,8 +54,10 @@ module Magpie
     end
 
     def app
-      #BIRD_APP
-      SNAKE_APP
+      case self.options[:mode]
+        when "snake"; SNAKE_APP
+        when "bird"; BIRD_APP
+      end
     end
 
     def default_options
@@ -66,7 +68,7 @@ module Magpie
         :Host        => "0.0.0.0",
         :AccessLog   => [],
         :yml         => "magpie.yml",
-        :mode        => "bird"
+        :mode        => "snake"
       }
     end
 

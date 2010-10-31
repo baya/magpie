@@ -26,93 +26,82 @@ module Magpie
         end
       }
       [state, header, body]
+      rescue Exception => e
+      [500, header, "500"]
     end
 
     def tongue(target, contents = { })
       @urls ||= { "GET" => { }, "POST" => { }}
-      get_states = contents[:states].inject({ }){ |h, state|
-        url_path = "/#{target}/#{state}"
-        h[url_path] = reg(target, state)
-        h["/#{target}"] = reg(target, state) if state.to_s == "index"
-        h
-      }
-
-      post_actions = contents[:actions].inject({ }){ |h, action|
-        url_path = "/#{target}/#{action}"
-        h[url_path] = reg(target, action)
-        h["/#{target}"]= reg(target, action) if action.to_s == "index"
-        h
-      }
-
-      @urls["GET"].merge!(get_states)
-      @urls["POST"].merge!(post_actions)
+      states = [contents[:states]].flatten.compact
+      route("GET", target, states)
+      actions = [contents[:actions]].flatten.compact
+      route("POST", target, actions)
     end
 
     def reg(target, state)
       self.class.reg(self, target, state)
     end
 
-    private
+    def route(method, target, states)
+      routes = states.inject({ }){ |h, state|
+        url_path = "/#{target}/#{state}"
+        h[url_path] = reg(target, state)
+        h["/#{target}"] = reg(target, state) if state.to_s == "index"
+        h
+      }
+      @urls[method.to_s.upcase].merge!(routes)
+    end
 
     def alipay_index
       @am = AlipayModel.new(@req.params)
-      if @am.valid?
-        @dung = Dung.new(@am)
-        render("success")
-      else
-        render("fail")
-      end
-    end
-
-    def alipay_pay
-      notify = query_to_hash(@req.params["notify"])
-      body = send_notify(@req.params["notify_url"], notify)
+      @title = "支付宝-收银台"
+      render_success_or_fail
     end
 
     def chinabank_index
       @am = ChinabankModel.new(@req.params)
-      if @am.valid?
-        @dung = Dung.new(@am)
-        render("success")
-      else
-        render("fail")
-      end
-    end
-
-    def chinabank_pay
-      notify = query_to_hash(@req.params["notify"])
-      body = send_notify(@req.params["notify_url"], notify)
+      @title = "网银在线-收银台"
+      render_success_or_fail
     end
 
     def tenpay_index
       @am = TenpayModel.new(@req.params)
-      if @am.valid?
-        @dung = Dung.new(@am)
-        render("success")
-      else
-        render("fail")
+      @title = "财付通-收银台"
+      render_success_or_fail
+    end
+
+    def order_pay
+      return "支付失败, 缺少足够的参数" if @req.params.blank?
+      case @req.params["notify_kind"]
+      when "alipay", "chinabank"; send_notify("POST", @req.params["notify_url"], query_to_hash(@req.params["notify"]))
+      when "tenpay"; send_notify("GET", @req.params["notify_url"], @req.params["notify"])
       end
     end
 
-    def tenpay_pay
-      notify = query_to_hash(@req.params["notify"])
-      body = send_notify(@req.params["notify_url"], notify)
-    end
+    private
 
-    def render(file_name)
+    def render(file_name, options = { })
+      layout = options["layout"] || "layouts/app.html.erb"
       file_path = File.join(File.dirname(__FILE__), "../..", "lib", "views", "#{file_name}.html.erb")
+      layout_path = File.join(File.dirname(__FILE__), "../..", "lib", "views", layout)
       template = ERB.new(File.read(file_path))
-      template.result(binding)
+      layout = ERB.new(File.read(layout_path))
+      @yield = template.result(binding)
+      layout.result(binding)
     end
 
     def query_to_hash(query)
       hash_params = query.split("&").inject({ }){ |h, q| qs = q.split("="); h[qs[0]] = qs[1]; h }
     end
 
-    def pay_url(name)
-      "/#{name}/pay"
+    def render_success_or_fail
+      if @am.valid?
+        @dung = Dung.new(@am)
+        render("success")
+      else
+        render("fail")
+      end
     end
-
 
   end
 

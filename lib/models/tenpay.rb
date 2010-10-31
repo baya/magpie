@@ -69,8 +69,13 @@ module Magpie
         "sp_billno"      => sp_billno,
         "total_fee"      => total_fee,
         "fee_type"       => fee_type,
-        "attach"         => attach
+        "attach"         => attach,
+        "sign"           => notify_sign
       }
+    end
+
+    def notify_string
+      @n_str ||= notify.map{ |kv| "%s=%s" % kv }.join("&")
     end
 
     def pay_result

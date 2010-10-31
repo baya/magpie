@@ -54,7 +54,7 @@ module Magpie
       @nq ||= @am.notify.map{ |kv| "%s=%s" % kv }.join("&")
     end
 
-    def name
+    def kind
       @name ||= case @am
                 when AlipayModel; "alipay"
                 when TenpayModel; "tenpay"
