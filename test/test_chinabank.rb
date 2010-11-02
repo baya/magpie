@@ -50,6 +50,13 @@ class ChinabankTest < Test::Unit::TestCase
     assert last_response.body.include? "<v_url>is too long (maximum is 200 characters)</v_url>"
   end
 
+  def test_validates_partner
+    post @gateway, @params.merge("v_mid" => "fake123")
+    assert last_response.body.include? "<v_mid>商户编号不存在</v_mid>"
+    post @gateway, @params.merge("v_mid" => "20000400")
+    assert !last_response.body.include?("<v_mid>商户编号不存在</v_mid>")
+  end
+
   def test_validates_numericality
     post @gateway, @params.merge("v_amount" => -1.00)
     assert last_response.body.include? "<v_amount>format should be Number(6, 2)</v_amount>"

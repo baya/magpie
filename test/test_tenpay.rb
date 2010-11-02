@@ -107,6 +107,13 @@ fee_type return_url attach spbill_create_ip sign).each do |attr|
     assert_equal sign, am.notify_sign.upcase
   end
 
+  def test_validates_partner
+    post @gateway, @params.merge("bargainor_id" => "fake123")
+    assert last_response.body.include?("<bargainor_id>商户号不存在</bargainor_id>")
+    post @gateway, @params.merge("bargainor_id" => "secret789")
+    assert !last_response.body.include?("<bargainor_id>商户编号不存在</bargainor_id>")
+  end
+
   private
 
   def can_not_blank(attr)

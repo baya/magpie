@@ -5,6 +5,7 @@ $:.unshift(File.dirname(__FILE__) + "/.." + "/lib")
 require 'helper'
 
 Magpie::AlipayModel.class_eval{ set_accounts_kind :alipay, :env => ENV['magpie']}
+
 class AlipayTest < Test::Unit::TestCase
   include Rack::Test::Methods
 

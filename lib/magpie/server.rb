@@ -34,6 +34,10 @@ module Magpie
             options[:mode] = mode
           }
 
+          opts.on("-L", "--log logfile", "指定日志文件"){ |logfile|
+            options[:log] = logfile
+          }
+
           opts.separator ""
           opts.separator "Common options:"
 
@@ -54,6 +58,7 @@ module Magpie
     end
 
     def app
+      require 'apps'
       case self.options[:mode]
         when "snake"; SNAKE_APP
         when "bird"; BIRD_APP
@@ -63,12 +68,13 @@ module Magpie
     def default_options
       {
         :environment => "development",
-        :pid         => "magpie.pid",
+        :pid         => nil,
         :Port        => 9292,
         :Host        => "0.0.0.0",
         :AccessLog   => [],
         :yml         => "magpie.yml",
-        :mode        => "snake"
+        :mode        => "snake",
+        :log         => "magpie.log"
       }
     end
 
@@ -83,6 +89,7 @@ module Magpie
           abort "configuration file #{options[:yml]} not found"
         end
       Magpie.yml_db = ::YAML.load_file(options[:yml])
+      Magpie.logger = ::Logger.new(options[:log])
       options
     end
 

@@ -21,7 +21,7 @@ module Magpie
       am.errors[:quantity] << "if price is not blank, must input quantity" if am.price_missing_quantity?
       am.errors[:seller] << "seller_email and seller_id can not both be blank" if am.seller_blank?
       am.errors[:sign] << "invalid sign" if am.invalid_sign?
-      am.errors[:partner] << "not exist" if am.missing_partner?
+      am.errors[:partner] << "not exist" if !am.partner.blank? and am.missing_partner?
       am.errors[:_input_charset] << "should be utf-8 or gb2312" unless am._input_charset.blank? or %w(utf-8 gb2312).member?(am._input_charset)
     end
 
@@ -31,11 +31,6 @@ module Magpie
 
     def price_missing_quantity?
       self.price.to_s.length > 0 and self.quantity.blank?
-    end
-
-    def missing_partner?
-      return if self.partner.blank?
-      self.account == [] ? true : false
     end
 
     def seller_blank?
@@ -61,12 +56,9 @@ module Magpie
       }.merge("sign_type" => sign_type, "sign" => notify_sign)
     end
 
-    #def notify_to_query
-      #self.notify.map{ |k, v| "#{k}=#{v}"}.join("&")
-    #end
-
 
     private
+
     def notify_id
       @notify_id ||= Time.now.to_i
     end

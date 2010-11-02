@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+require 'open-uri'
+require 'hpricot'
+require 'iconv'
 require 'net/https'
 require 'uri'
 
@@ -47,20 +50,35 @@ module Magpie
 
     def get_xml_body(env, am, red_text)
       if red_text.blank?
-        begin_at = Time.now
-        notify_res = case am
-                     when AlipayModel, ChinabankModel; send_notify("POST", am.notify_url, am.notify).gsub(/<[^>]*>|<\/[^>]*>/m, '')
-                     when TenpayModel; send_notify("GET", am.notify_url, am.notify_string).gsub(/<[^>]*>|<\/[^>]*>/m, '')
-                     end
-        now = Time.now
-        env["magpie.notify"] = ["POST", am.notify_url, now.strftime("%d/%b/%Y %H:%M:%S"), now - begin_at, am.notify.inspect, notify_res ]
+        notify_res = get_notify_res(am)
         xml_body = build_xml(:payment_success => "Yes",  :business => notify_res )
       else
         am.valid?
         xml_body = build_xml(:payment_success => "No", :errors => am.errors.merge(:final => red_text))
-        env["magpie.errors.info"] = am.errors.merge(:final => red_text)
+        log_errors(am.errors.merge(:final => red_text))
       end
       xml_body
+    end
+
+    def get_notify_res(am)
+      case am
+      when AlipayModel, ChinabankModel
+        notify_res = send_notify("POST", am.notify_url, am.notify).gsub(/<[^>]*>|<\/[^>]*> |\s/m, '')
+        method = "POST"
+      when TenpayModel
+        notify_res = send_notify("GET", am.notify_url, am.notify_string).gsub(/<[^>]*>|<\/[^>]*>|\s/m, '')
+        method = "GET"
+      end
+      log_notify(method, am.notify_url, am.notify, notify_res)
+      notify_res
+    end
+
+    def log_notify(method, notify_url, notify_params, notify_res)
+      Magpie.logger.info(FORMAT_NOTIFY % [method, notify_url, Time.now.strftime("%d/%b/%Y %H:%M:%S"), notify_params.inspect, notify_res])
+    end
+
+    def log_errors(errors = { })
+      Magpie.logger.info(errors.map{ |kv| "%s: %s" % kv }.join("\n"))
     end
 
     def start_http(url, req)

@@ -27,7 +27,6 @@ class Magpie::UtilsTest < Test::Unit::TestCase
     assert res.include?("redirected")
     url = "http://piao.fantong.com/tenpay/notify"
     res = send_notify("post", url, { })
-    puts res
     assert res.include?("请确认#{url}在你的商户系统中可用")
     res = send_notify("get", url, "")
     assert !res.include?("请确认#{url}在你的商户系统中可用")

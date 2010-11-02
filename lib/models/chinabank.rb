@@ -17,6 +17,7 @@ module Magpie
       am.errors[:v_oid] << "is too long (maximum is 64 characters)" if am.v_oid.to_s.length > 64
       am.errors[:v_url] << "is too long (maximum is 200 characters)" if am.v_url.to_s.length > 200
       am.errors[:v_amount] << "format should be Number(6, 2)" unless am.v_amount =~ /^[0-9]{1,6}\.[0-9]{1,2}$/ or am.v_amount.blank?
+      am.errors[:v_mid] << "商户编号不存在" if !am.partner.blank? and am.missing_partner?
     end
 
     def invalid_sign?

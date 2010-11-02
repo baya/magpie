@@ -35,5 +35,9 @@ module Magpie
       @key ||= self.account[1].to_s
     end
 
+    def missing_partner?
+      self.account == [] ? true : false
+    end
+
   end
 end

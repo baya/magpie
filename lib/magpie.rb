@@ -1,21 +1,25 @@
 # -*- coding: utf-8 -*-
-require 'open-uri'
-require 'hpricot'
-require 'iconv'
 require 'rack'
+require 'logger'
 
 Object.class_eval{def blank?; self.to_s.gsub(/\s/, '').length == 0; end;}
 
 module Magpie
+
   VERSION = [0, 8, 6, 2]
+  FORMAT_ERRORS = %{%s : "%s" \n}
+  FORMAT_NOTIFY =  %{Notify to [%s] %s at[%s]\n Parameters:%s\n\nBusiness result:%s\n\n}
 
   class << self
     attr_accessor :yml_db
+    attr_accessor :logger
 
     def version
       VERSION.join(".")
     end
   end
+
+  Magpie.logger = Logger.new("test/test.log") if ENV["magpie"] == 'test'
 
   autoload :Utils,     "magpie/utils"
   autoload :Mothlog,   "middles/mothlog"
@@ -27,49 +31,6 @@ module Magpie
   autoload :Goose,     "magpie/goose"
   autoload :Mouse,     "magpie/mouse"
   autoload :Dung,      "models/dung"
-
-
-
-  BIRD_APP = Rack::Builder.new {
-    use Mothlog
-
-    map "/alipay" do
-      use Alipay
-      run lambda{ |env| [200, {"Content-Type" => "text/xml"}, [""]]}
-    end
-
-    map "/chinabank" do
-      use Chinabank
-      run lambda { |env| [200, { "Content-Type" => "text/xml"}, [""]]}
-    end
-
-    map "/tenpay" do
-      use Tenpay
-      run lambda { |env| [200, { "Content-Type" => "text/xml"}, [""]]}
-    end
-
-    map "/" do
-      run lambda{ |env| [200, {"Content-Type" => "text/html"}, ["magpie"]]}
-    end
-
-  }
-
-  SNAKE_APP = Rack::Builder.new {
-
-    use Rack::ContentType, "text/html"
-    use Rack::ContentLength
-    use Rack::Static, :urls => ["/images"], :root => File.join(Dir.pwd, "..", "static")
-
-    use Snake do |snake|
-      snake.tongue :alipay,    :states => :index
-      snake.tongue :chinabank, :states => :index, :actions => :index
-      snake.tongue :tenpay,    :states => :index, :actions => :index
-      snake.tongue :order,     :actions => :pay
-    end
-
-    run lambda { |env| [200, { }, [""]]}
-  }
-
 
 end
 

@@ -73,9 +73,15 @@ module Magpie
     def order_pay
       return "支付失败, 缺少足够的参数" if @req.params.blank?
       case @req.params["notify_kind"]
-      when "alipay", "chinabank"; send_notify("POST", @req.params["notify_url"], query_to_hash(@req.params["notify"]))
-      when "tenpay"; send_notify("GET", @req.params["notify_url"], @req.params["notify"])
+      when "alipay", "chinabank"
+        notify_res = send_notify("POST", @req.params["notify_url"], query_to_hash(@req.params["notify"]))
+        method = "POST"
+      when "tenpay"
+        notify_res = send_notify("GET", @req.params["notify_url"], @req.params["notify"])
+        method = "GET"
       end
+      log_notify(method, @req.params["notify_url"], query_to_hash(@req.params["notify"]), notify_res)
+      notify_res
     end
 
     private
@@ -99,6 +105,7 @@ module Magpie
         @dung = Dung.new(@am)
         render("success")
       else
+        log_errors(@am.errors)
         render("fail")
       end
     end

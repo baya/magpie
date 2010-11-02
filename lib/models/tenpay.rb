@@ -36,6 +36,7 @@ module Magpie
       am.errors[:fee_type] << "目前只支持人民币,请填1" unless am.fee_type.blank? or am.fee_type.to_s == "1"
       am.errors[:sign] << "sign签名必须大写" unless am.sign.blank? or am.sign.upcase == am.sign
       am.errors[:sign] << "invalid sign" if am.invalid_request_sign?
+      am.errors[:bargainor_id] << "商户号不存在" if !am.partner.blank? and am.missing_partner?
     end
 
 
