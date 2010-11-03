@@ -107,17 +107,20 @@ module Magpie
     # @param [String, String, Hash] url是商户系统用来接收通知的url, notify是支付平台发过来的参数
     # @return [String] 如果有异常需要你确认url是否有效
     def send_notify(method, url, notify)
-      timeout(8) do
-        res = case method.to_s.upcase
-              when "GET"; get_query(url, notify)
-              when "POST"; post_query(url, notify)
-              end
-        case res
-        when Net::HTTPSuccess, Net::HTTPRedirection; res.body
-        else
-          raise "#{res.class}@#{res.code}"
+      times = [4, 6, 2]
+      Rubber.try(3){|i|
+        timeout(times[3-i]) do
+          res = case method.to_s.upcase
+                when "GET"; get_query(url, notify)
+                when "POST"; post_query(url, notify)
+                end
+          case res
+          when Net::HTTPSuccess, Net::HTTPRedirection; res.body
+          else
+            raise "#{res.class}@#{res.code}"
+          end
         end
-      end
+      }
     rescue Exception => e
       "发送通知时出现异常#{e}, 请确认#{url}在你的商户系统中可用, 比如#{url}是否可以#{method.upcase}方式接收其他应用的请求"
     end

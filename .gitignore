@@ -2,3 +2,4 @@
 magpie.yml
 /mag
 lib/mag
+*.log

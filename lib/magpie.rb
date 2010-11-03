@@ -6,7 +6,7 @@ Object.class_eval{def blank?; self.to_s.gsub(/\s/, '').length == 0; end;}
 
 module Magpie
 
-  VERSION = [0, 8, 6, 2]
+  VERSION = [0, 8, 8]
   FORMAT_ERRORS = %{%s : "%s" \n}
   FORMAT_NOTIFY =  %{Notify to [%s] %s at[%s]\n Parameters:%s\n\nBusiness result:%s\n\n}
 
@@ -22,6 +22,7 @@ module Magpie
   Magpie.logger = Logger.new("test/test.log") if ENV["magpie"] == 'test'
 
   autoload :Utils,     "magpie/utils"
+  autoload :Rubber,    "magpie/rubber"
   autoload :Mothlog,   "middles/mothlog"
   autoload :Snake,     "middles/snake"
   autoload :Alipay,    "middles/alipay"

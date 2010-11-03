@@ -27,7 +27,8 @@ module Magpie
       }
       [state, header, body]
       rescue Exception => e
-      [500, header, "500"]
+      Magpie.logger.info(e.inspect + ":\n" + e.backtrace[0..8].join("\n"))
+      [500, header, "500, 请查看日志,了解异常原因"]
     end
 
     def tongue(target, contents = { })
