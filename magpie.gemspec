@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name            = "magpie"
-  s.version         = "0.8.8"
+  s.version         = "0.8.8.1"
   s.platform        = Gem::Platform::RUBY
   s.summary         = "用ruby语言编写的支付平台测试沙盒"
 
@@ -14,6 +14,48 @@ EOF
   %w(COPYING magpie.gemspec README.md Rakefile )
   s.files            =%w(
 bin/mag
+static/images
+static/images/error.gif
+static/images/q2.gif
+doc/css
+doc/css/full_list.css
+doc/css/style.css
+doc/css/common.css
+doc/index.html
+doc/js
+doc/js/app.js
+doc/js/jquery.js
+doc/js/full_list.js
+doc/frames.html
+doc/file_list.html
+doc/_index.html
+doc/method_list.html
+doc/file.README.html
+doc/top-level-namespace.html
+doc/class_list.html
+doc/Magpie
+doc/Magpie/Goose.html
+doc/Magpie/Server
+doc/Magpie/Server/Options.html
+doc/Magpie/Utils.html
+doc/Magpie/Tenpay.html
+doc/Magpie/Goose
+doc/Magpie/Goose/ClassMethods.html
+doc/Magpie/Alipay.html
+doc/Magpie/Chinabank.html
+doc/Magpie/Dung.html
+doc/Magpie/ChinabankModel.html
+doc/Magpie/Snake.html
+doc/Magpie/Server.html
+doc/Magpie/AlipayModel.html
+doc/Magpie/Mouse
+doc/Magpie/Mouse/MouseError.html
+doc/Magpie/Mouse/ClassMethods.html
+doc/Magpie/TenpayModel.html
+doc/Magpie/Mothlog.html
+doc/Magpie/Rubber.html
+doc/Magpie/Mouse.html
+doc/Magpie.html
 lib/magpie/mouse.rb
 lib/magpie/server.rb
 lib/magpie/utils.rb

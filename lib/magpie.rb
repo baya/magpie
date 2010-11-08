@@ -6,7 +6,7 @@ Object.class_eval{def blank?; self.to_s.gsub(/\s/, '').length == 0; end;}
 
 module Magpie
 
-  VERSION = [0, 8, 8]
+  VERSION = [0, 8, 8, 1]
   FORMAT_ERRORS = %{%s : "%s" \n}
   FORMAT_NOTIFY =  %{Notify to [%s] %s at[%s]\n Parameters:%s\n\nBusiness result:%s\n\n}
 

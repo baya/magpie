@@ -28,7 +28,7 @@ module Magpie
 
     use Rack::ContentType, "text/html"
     use Rack::ContentLength
-    use Rack::Static, :urls => ["/images"], :root => File.join(Dir.pwd, "..", "static")
+    use Rack::Static, :urls => ["/images"], :root => File.join(File.dirname(__FILE__), "..", "static")
 
     use Snake do |snake|
       snake.tongue :alipay,    :states => :index

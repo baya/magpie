@@ -159,6 +159,8 @@ Changelog
   - 增加snake, bird两个启动模式
   - 增加日志功能
 
+- **2010-11-08**: 0.8.8.1 release
+  - 修改一个紧急bug: 加载yml文件报无法找到YAML
 
 
 Copyright

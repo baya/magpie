@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+require 'yaml'
+
 module Magpie
   class Server < Rack::Server
     class Options

@@ -6,7 +6,7 @@ Rake::TestTask.new do |t|
 end
 
 task :dir_files do
-  files = Dir["{bin/*,lib/*,lib/magpie/**/*,lib/models/*,lib/middles/*,lib/views/**/*,test/**/*}"] -
+  files = Dir["{bin/*,static/**/*,doc/**/*,lib/*,lib/magpie/**/*,lib/models/*,lib/middles/*,lib/views/**/*,test/**/*}"] -
   %w(lib/magpie.yml lib/mag) +
   %w(COPYING magpie.gemspec README.md Rakefile )
   puts files.join("\n")
