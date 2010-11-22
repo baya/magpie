@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 require 'open-uri'
-require 'hpricot'
 require 'iconv'
 require 'net/https'
 require 'uri'

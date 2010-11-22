@@ -63,7 +63,9 @@ module Magpie
       require 'apps'
       case self.options[:mode]
         when "snake"; SNAKE_APP
-        when "bird"; BIRD_APP
+      when "bird"
+        require 'hpricot'
+        BIRD_APP
       end
     end
 
