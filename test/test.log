@@ -5332,3 +5332,976 @@ I, [2010-11-08T16:41:35.714738 #5348]  INFO -- : final: [21620002]您的请求�
 desc: can't be blank
 transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
 bank_type: can't be blank
+I, [2010-12-05T20:58:42.866100 #4649]  INFO -- : Sun Dec 05 20:58:42 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-05T20:58:42.891702 #4649]  INFO -- : Sun Dec 05 20:58:42 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-05T20:58:42.893546 #4649]  INFO -- : Sun Dec 05 20:58:42 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-05T20:58:42.905690 #4649]  INFO -- : Sun Dec 05 20:58:42 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-05T20:58:42.908416 #4649]  INFO -- : Sun Dec 05 20:58:42 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-05T20:58:42.910664 #4649]  INFO -- : Sun Dec 05 20:58:42 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-05T20:58:42.917249 #4649]  INFO -- : return_url: can't be blank
+sign_type: can't be blank
+subject: can't be blank
+service: can't be blank
+out_trade_no: can't be blank
+seller: seller_email and seller_id can not both be blank
+partner: can't be blank
+payment_type: can't be blank
+sign: can't be blankinvalid sign
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+I, [2010-12-05T20:58:42.933031 #4649]  INFO -- : v_url: can't be blank
+v_md5info: can't be blank
+v_mid: can't be blank
+v_oid: can't be blank
+v_amount: can't be blank
+sign: invalid v_md5info
+v_moneytype: can't be blank
+I, [2010-12-05T20:58:42.938241 #4649]  INFO -- : v_url: can't be blank
+v_md5info: can't be blank
+v_mid: can't be blank
+v_oid: can't be blank
+v_amount: can't be blank
+sign: invalid v_md5info
+v_moneytype: can't be blank
+I, [2010-12-05T20:58:42.943241 #4649]  INFO -- : #<NoMethodError: private method `split' called for nil:NilClass>:
+./test/../lib/middles/snake.rb:101:in `query_to_hash'
+./test/../lib/middles/snake.rb:84:in `order_pay'
+./test/../lib/middles/snake.rb:10:in `call'
+./test/../lib/middles/snake.rb:10
+./test/../lib/middles/snake.rb:24:in `call'
+./test/../lib/middles/snake.rb:24:in `call'
+./test/../lib/middles/snake.rb:22:in `each'
+./test/../lib/middles/snake.rb:22:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/static.rb:33:in `call'
+I, [2010-12-05T20:58:42.945336 #4649]  INFO -- : return_url: can't be blank
+sign_type: can't be blank
+subject: can't be blank
+service: can't be blank
+out_trade_no: can't be blank
+seller: seller_email and seller_id can not both be blank
+partner: can't be blank
+payment_type: can't be blank
+sign: can't be blankinvalid sign
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+I, [2010-12-05T20:58:42.952241 #4649]  INFO -- : attach: can't be blank
+return_url: can't be blank
+spbill_create_ip: can't be blank
+total_fee: can't be blank
+bargainor_id: can't be blank
+desc: can't be blank
+transaction_id: can't be blank
+sp_billno: can't be blank
+sign: can't be blankinvalid sign
+cmdno: can't be blank
+fee_type: can't be blank
+bank_type: can't be blank
+date: can't be blank
+I, [2010-12-05T20:58:42.956849 #4649]  INFO -- : attach: can't be blank
+return_url: can't be blank
+spbill_create_ip: can't be blank
+total_fee: can't be blank
+bargainor_id: can't be blank
+desc: can't be blank
+transaction_id: can't be blank
+sp_billno: can't be blank
+sign: can't be blankinvalid sign
+cmdno: can't be blank
+fee_type: can't be blank
+bank_type: can't be blank
+date: can't be blank
+I, [2010-12-30T16:02:57.810282 #11121]  INFO -- : Thu Dec 30 16:02:57 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:23:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:02:58.001797 #11121]  INFO -- : Thu Dec 30 16:02:58 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:23:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:02:58.220975 #11121]  INFO -- : Thu Dec 30 16:02:58 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:23:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:02:58.586602 #11121]  INFO -- : Thu Dec 30 16:02:58 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:02:58.798557 #11121]  INFO -- : Thu Dec 30 16:02:58 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:02:58.980401 #11121]  INFO -- : Thu Dec 30 16:02:58 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:02:59.164261 #11121]  INFO -- : Thu Dec 30 16:02:59 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:02:59.167383 #11121]  INFO -- : Thu Dec 30 16:02:59 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:02:59.170058 #11121]  INFO -- : Thu Dec 30 16:02:59 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:02:59.266332 #11121]  INFO -- : seller: seller_email and seller_id can not both be blank
+partner: can't be blank
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign_type: can't be blank
+subject: can't be blank
+sign: can't be blankinvalid sign
+service: can't be blank
+out_trade_no: can't be blank
+I, [2010-12-30T16:02:59.274118 #11121]  INFO -- : v_amount: can't be blank
+v_moneytype: can't be blank
+v_url: can't be blank
+v_md5info: can't be blank
+v_mid: can't be blank
+sign: invalid v_md5info
+v_oid: can't be blank
+I, [2010-12-30T16:02:59.281225 #11121]  INFO -- : v_amount: can't be blank
+v_moneytype: can't be blank
+v_url: can't be blank
+v_md5info: can't be blank
+v_mid: can't be blank
+sign: invalid v_md5info
+v_oid: can't be blank
+I, [2010-12-30T16:02:59.288602 #11121]  INFO -- : #<NoMethodError: private method `split' called for nil:NilClass>:
+./test/../lib/middles/snake.rb:101:in `query_to_hash'
+./test/../lib/middles/snake.rb:84:in `order_pay'
+./test/../lib/middles/snake.rb:10:in `call'
+./test/../lib/middles/snake.rb:10
+./test/../lib/middles/snake.rb:24:in `call'
+./test/../lib/middles/snake.rb:24:in `call'
+./test/../lib/middles/snake.rb:22:in `each'
+./test/../lib/middles/snake.rb:22:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/static.rb:33:in `call'
+I, [2010-12-30T16:02:59.293155 #11121]  INFO -- : seller: seller_email and seller_id can not both be blank
+partner: can't be blank
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign_type: can't be blank
+subject: can't be blank
+sign: can't be blankinvalid sign
+service: can't be blank
+out_trade_no: can't be blank
+I, [2010-12-30T16:02:59.308924 #11121]  INFO -- : sp_billno: can't be blank
+desc: can't be blank
+cmdno: can't be blank
+fee_type: can't be blank
+bank_type: can't be blank
+attach: can't be blank
+return_url: can't be blank
+spbill_create_ip: can't be blank
+total_fee: can't be blank
+bargainor_id: can't be blank
+sign: can't be blankinvalid sign
+transaction_id: can't be blank
+date: can't be blank
+I, [2010-12-30T16:02:59.317421 #11121]  INFO -- : sp_billno: can't be blank
+desc: can't be blank
+cmdno: can't be blank
+fee_type: can't be blank
+bank_type: can't be blank
+attach: can't be blank
+return_url: can't be blank
+spbill_create_ip: can't be blank
+total_fee: can't be blank
+bargainor_id: can't be blank
+sign: can't be blankinvalid sign
+transaction_id: can't be blank
+date: can't be blank
+I, [2010-12-30T16:04:59.589653 #11374]  INFO -- : Thu Dec 30 16:04:59 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:23:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:04:59.775733 #11374]  INFO -- : Thu Dec 30 16:04:59 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:23:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:05:00.043818 #11374]  INFO -- : Thu Dec 30 16:05:00 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:23:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:05:00.420619 #11374]  INFO -- : Thu Dec 30 16:05:00 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:05:00.612268 #11374]  INFO -- : Thu Dec 30 16:05:00 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:05:00.799430 #11374]  INFO -- : Thu Dec 30 16:05:00 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:05:00.982234 #11374]  INFO -- : Thu Dec 30 16:05:00 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:05:00.985382 #11374]  INFO -- : Thu Dec 30 16:05:00 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:05:00.988047 #11374]  INFO -- : Thu Dec 30 16:05:00 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:05:01.075668 #11374]  INFO -- : seller: seller_email and seller_id can not both be blank
+partner: can't be blank
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign_type: can't be blank
+subject: can't be blank
+sign: can't be blankinvalid sign
+service: can't be blank
+out_trade_no: can't be blank
+I, [2010-12-30T16:05:01.083392 #11374]  INFO -- : v_amount: can't be blank
+v_moneytype: can't be blank
+v_url: can't be blank
+v_md5info: can't be blank
+v_mid: can't be blank
+sign: invalid v_md5info
+v_oid: can't be blank
+I, [2010-12-30T16:05:01.090354 #11374]  INFO -- : v_amount: can't be blank
+v_moneytype: can't be blank
+v_url: can't be blank
+v_md5info: can't be blank
+v_mid: can't be blank
+sign: invalid v_md5info
+v_oid: can't be blank
+I, [2010-12-30T16:05:01.099138 #11374]  INFO -- : #<NoMethodError: private method `split' called for nil:NilClass>:
+./test/../lib/middles/snake.rb:101:in `query_to_hash'
+./test/../lib/middles/snake.rb:84:in `order_pay'
+./test/../lib/middles/snake.rb:10:in `call'
+./test/../lib/middles/snake.rb:10
+./test/../lib/middles/snake.rb:24:in `call'
+./test/../lib/middles/snake.rb:24:in `call'
+./test/../lib/middles/snake.rb:22:in `each'
+./test/../lib/middles/snake.rb:22:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/static.rb:33:in `call'
+I, [2010-12-30T16:05:01.103761 #11374]  INFO -- : seller: seller_email and seller_id can not both be blank
+partner: can't be blank
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign_type: can't be blank
+subject: can't be blank
+sign: can't be blankinvalid sign
+service: can't be blank
+out_trade_no: can't be blank
+I, [2010-12-30T16:05:01.117421 #11374]  INFO -- : sp_billno: can't be blank
+desc: can't be blank
+cmdno: can't be blank
+fee_type: can't be blank
+bank_type: can't be blank
+attach: can't be blank
+return_url: can't be blank
+spbill_create_ip: can't be blank
+total_fee: can't be blank
+bargainor_id: can't be blank
+sign: can't be blankinvalid sign
+transaction_id: can't be blank
+date: can't be blank
+I, [2010-12-30T16:05:01.125995 #11374]  INFO -- : sp_billno: can't be blank
+desc: can't be blank
+cmdno: can't be blank
+fee_type: can't be blank
+bank_type: can't be blank
+attach: can't be blank
+return_url: can't be blank
+spbill_create_ip: can't be blank
+total_fee: can't be blank
+bargainor_id: can't be blank
+sign: can't be blankinvalid sign
+transaction_id: can't be blank
+date: can't be blank
+I, [2010-12-30T16:07:40.806815 #11529]  INFO -- : service: can't be blank
+out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_SERVICE
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:41.161208 #11529]  INFO -- : out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:41.536569 #11529]  INFO -- : out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+_input_charset: should be utf-8 or gb2312
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:41.888225 #11529]  INFO -- : out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:42.244326 #11529]  INFO -- : out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:42.611874 #11529]  INFO -- : quantity: if price is not blank, must input quantity
+out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price和total_fee不能同时出现
+return_url: can't be blank
+price: format should be Number(13, 2)
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+total_fee: format should be Number(13, 2)
+subject: can't be blank
+I, [2010-12-30T16:07:42.969318 #11529]  INFO -- : quantity: if price is not blank, must input quantity
+out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:43.321467 #11529]  INFO -- : out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:43.676484 #11529]  INFO -- : out_trade_no: can't be blank
+partner: is too long (maximum is 16 characters)not exist
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: is too long (maximum is 4 characters)
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:44.060304 #11529]  INFO -- : quantity: should be integer and between 1~999999
+out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:44.494836 #11529]  INFO -- : quantity: should be integer and between 1~999999
+out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:47.855306 #11529]  INFO -- : quantity: should be integer and between 1~999999
+out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:48.220828 #11529]  INFO -- : out_trade_no: can't be blank
+seller: seller_email and seller_id can not both be blank
+partner: not exist
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:48.580338 #11529]  INFO -- : out_trade_no: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:48.938859 #11529]  INFO -- : service: can't be blank
+out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_SERVICE
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:49.307611 #11529]  INFO -- : quantity: if price is not blank, must input quantity
+out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price和total_fee不能同时出现
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:49.893994 #11529]  INFO -- : out_trade_no: can't be blank
+partner: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign: can't be blankinvalid sign
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:50.253830 #11529]  INFO -- : out_trade_no: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign_type: can't be blank
+sign: invalid sign
+subject: can't be blank
+I, [2010-12-30T16:07:50.622581 #11529]  INFO -- : out_trade_no: can't be blank
+seller: seller_email and seller_id can not both be blank
+final: 错误代码 ILLEGAL_PARTNER
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign_type: can't be blank
+subject: can't be blank
+I, [2010-12-30T16:07:51.025688 #11529]  INFO -- : v_md5info: can't be blank
+final: 出错了!200903数据签名验证未通过 
+sign: invalid v_md5info
+I, [2010-12-30T16:07:51.403534 #11529]  INFO -- : v_url: is too long (maximum is 200 characters)
+v_md5info: can't be blank
+final: 出错了!500903参数错误,订单号过长 
+v_oid: is too long (maximum is 64 characters)
+sign: invalid v_md5info
+I, [2010-12-30T16:07:51.776682 #11529]  INFO -- : v_md5info: can't be blank
+final: 出错了!501112参数错误,非法金额参数 
+v_amount: format should be Number(6, 2)
+sign: invalid v_md5info
+I, [2010-12-30T16:07:52.154213 #11529]  INFO -- : v_md5info: can't be blank
+final: 出错了!500708参数错误,该商户ID不存在 
+v_mid: 商户编号不存在
+sign: invalid v_md5info
+I, [2010-12-30T16:07:52.496053 #11529]  INFO -- : v_md5info: can't be blank
+final: 出错了!200903数据签名验证未通过 
+sign: invalid v_md5info
+I, [2010-12-30T16:07:57.802745 #11529]  INFO -- : v_url: can't be blank
+v_md5info: can't be blank
+final: 出错了!500800错误的数据格式,不能解析 
+v_mid: can't be blank
+v_oid: can't be blank
+v_amount: can't be blank
+sign: invalid v_md5info
+v_moneytype: can't be blank
+I, [2010-12-30T16:07:58.153108 #11529]  INFO -- : final: 出错了!200903数据签名验证未通过 
+sign: invalid v_md5info
+I, [2010-12-30T16:07:58.571867 #11529]  INFO -- : final: 出错了!200903数据签名验证未通过 
+I, [2010-12-30T16:07:58.954019 #11529]  INFO -- : Thu Dec 30 16:07:58 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:23:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:08:09.120833 #11529]  INFO -- : Thu Dec 30 16:08:09 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/timeout.rb:60:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+./test/../lib/magpie/utils.rb:102:in `post_query'
+I, [2010-12-30T16:08:09.310876 #11529]  INFO -- : Thu Dec 30 16:08:09 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:23:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:08:09.676641 #11529]  INFO -- : Thu Dec 30 16:08:09 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:08:09.864363 #11529]  INFO -- : Thu Dec 30 16:08:09 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:08:10.052710 #11529]  INFO -- : Thu Dec 30 16:08:10 +0800 2010:./test/../lib/magpie/rubber.rb:7}:./test/../lib/magpie/utils.rb:119:in `send_notify'
+/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+./test/../lib/magpie/utils.rb:111:in `send_notify'
+./test/../lib/magpie/rubber.rb:5:in `try'
+./test/../lib/magpie/utils.rb:110:in `send_notify'
+./test/test_utils.rb:29:in `test_send_notify_code'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `__send__'
+/usr/lib/ruby/1.8/test/unit/testcase.rb:78:in `run'
+I, [2010-12-30T16:08:10.238079 #11529]  INFO -- : Thu Dec 30 16:08:10 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:08:10.245939 #11529]  INFO -- : Thu Dec 30 16:08:10 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:08:10.249006 #11529]  INFO -- : Thu Dec 30 16:08:10 +0800 2010:./test/../lib/magpie/rubber.rb:7}:/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'
+/usr/lib/ruby/1.8/net/http.rb:560:in `open'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/timeout.rb:53:in `timeout'
+/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'
+/usr/lib/ruby/1.8/net/http.rb:560:in `connect'
+/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+./test/../lib/magpie/utils.rb:89:in `start_http'
+I, [2010-12-30T16:08:10.261833 #11529]  INFO -- : service: can't be blank
+out_trade_no: can't be blank
+seller: seller_email and seller_id can not both be blank
+partner: can't be blank
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign_type: can't be blank
+sign: can't be blankinvalid sign
+subject: can't be blank
+I, [2010-12-30T16:08:10.269696 #11529]  INFO -- : v_url: can't be blank
+v_md5info: can't be blank
+v_mid: can't be blank
+v_oid: can't be blank
+v_amount: can't be blank
+sign: invalid v_md5info
+v_moneytype: can't be blank
+I, [2010-12-30T16:08:10.278233 #11529]  INFO -- : v_url: can't be blank
+v_md5info: can't be blank
+v_mid: can't be blank
+v_oid: can't be blank
+v_amount: can't be blank
+sign: invalid v_md5info
+v_moneytype: can't be blank
+I, [2010-12-30T16:08:10.286336 #11529]  INFO -- : #<NoMethodError: private method `split' called for nil:NilClass>:
+./test/../lib/middles/snake.rb:101:in `query_to_hash'
+./test/../lib/middles/snake.rb:84:in `order_pay'
+./test/../lib/middles/snake.rb:10:in `call'
+./test/../lib/middles/snake.rb:10
+./test/../lib/middles/snake.rb:24:in `call'
+./test/../lib/middles/snake.rb:24:in `call'
+./test/../lib/middles/snake.rb:22:in `each'
+./test/../lib/middles/snake.rb:22:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.1/lib/rack/static.rb:33:in `call'
+I, [2010-12-30T16:08:10.290673 #11529]  INFO -- : service: can't be blank
+out_trade_no: can't be blank
+seller: seller_email and seller_id can not both be blank
+partner: can't be blank
+payment_type: can't be blank
+notify_url: can't be blank
+money: price and total_fee can not both be blank
+return_url: can't be blank
+sign_type: can't be blank
+sign: can't be blankinvalid sign
+subject: can't be blank
+I, [2010-12-30T16:08:10.300989 #11529]  INFO -- : attach: can't be blank
+spbill_create_ip: can't be blank
+bargainor_id: can't be blank
+transaction_id: can't be blank
+desc: can't be blank
+return_url: can't be blank
+sp_billno: can't be blank
+sign: can't be blankinvalid sign
+cmdno: can't be blank
+fee_type: can't be blank
+total_fee: can't be blank
+bank_type: can't be blank
+date: can't be blank
+I, [2010-12-30T16:08:10.309251 #11529]  INFO -- : attach: can't be blank
+spbill_create_ip: can't be blank
+bargainor_id: can't be blank
+transaction_id: can't be blank
+desc: can't be blank
+return_url: can't be blank
+sp_billno: can't be blank
+sign: can't be blankinvalid sign
+cmdno: can't be blank
+fee_type: can't be blank
+total_fee: can't be blank
+bank_type: can't be blank
+date: can't be blank
+I, [2010-12-30T16:08:10.656791 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:11.002145 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:14.345127 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:14.740212 #11529]  INFO -- : attach: can't be blank
+spbill_create_ip: can't be blank
+final: 您的支付请求类型稍后支持,敬请期待
+bargainor_id: can't be blank
+desc: can't be blank
+transaction_id: can't be blank
+return_url: can't be blank
+sp_billno: can't be blank
+cmdno: can't be blank
+sign: can't be blankinvalid sign
+total_fee: can't be blank
+fee_type: can't be blank
+date: can't be blank
+bank_type: can't be blank
+I, [2010-12-30T16:08:15.085268 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:15.427759 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+total_fee: 格式错误,只能为数字,以分为单位,不允许包含任何字符
+bank_type: can't be blank
+I, [2010-12-30T16:08:15.994437 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+total_fee: 格式错误,只能为数字,以分为单位,不允许包含任何字符
+bank_type: can't be blank
+I, [2010-12-30T16:08:16.336867 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:16.783137 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+fee_type: 目前只支持人民币,请填1
+bank_type: can't be blank
+I, [2010-12-30T16:08:17.129135 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:20.469759 #11529]  INFO -- : spbill_create_ip: 格式错误
+final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:20.816643 #11529]  INFO -- : spbill_create_ip: 格式错误
+final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:21.160354 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:21.505490 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sp_billno: 长度错误,应该在28个字符内
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:21.899276 #11529]  INFO -- : attach: can't be blank
+spbill_create_ip: can't be blank
+final: 您的支付请求类型稍后支持,敬请期待
+bargainor_id: can't be blank
+desc: can't be blank
+transaction_id: can't be blank
+return_url: can't be blank
+sp_billno: can't be blank
+cmdno: can't be blank
+sign: can't be blankinvalid sign
+total_fee: can't be blank
+fee_type: can't be blank
+date: can't be blank
+bank_type: can't be blank
+I, [2010-12-30T16:08:22.247474 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+bargainor_id: 商户号不存在
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:22.814491 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+bargainor_id: 商户号不存在
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: can't be blankinvalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:23.242317 #11529]  INFO -- : attach: can't be blank
+spbill_create_ip: can't be blank
+final: 您的支付请求类型稍后支持,敬请期待
+bargainor_id: can't be blank
+desc: can't be blank
+transaction_id: can't be blank
+return_url: can't be blank
+sp_billno: can't be blank
+cmdno: can't be blank
+sign: can't be blankinvalid sign
+total_fee: can't be blank
+fee_type: can't be blank
+date: can't be blank
+bank_type: can't be blank
+I, [2010-12-30T16:08:23.591910 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: sign签名必须大写invalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:23.940511 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: invalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:24.364200 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+sign: invalid sign
+bank_type: can't be blank
+I, [2010-12-30T16:08:24.713727 #11529]  INFO -- : final: 聽聽发生错误了！聽聽10000002|bargainor_id input error
+desc: can't be blank
+transaction_id: 格式错误,transaction_id为28位长的数值,其中前10位为商户网站编号(SPID)，由财付通统一分配;之后8位为订单产生的日期,如20050415;最后10位商户需要保证一天内不同的事务(用户订购一次商品或购买一次服务),其ID不相同
+bank_type: can't be blank

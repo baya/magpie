@@ -138,6 +138,7 @@ magpie在bird模式下会将开发者提交的支付参数往alipay的实际网�
 --------
 * [饭票](http://piao.fantong.com)
 * [饭团](http://tuan.fantong.com)
+* [套餐](http://tc.fantong.com)
 
 
 感谢

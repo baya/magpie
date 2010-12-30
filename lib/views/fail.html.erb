@@ -3,10 +3,12 @@
 <div id="Info">
   <div class="ErrorInfo">
     <strong>请求失败</strong>
+   <div id="c-u">
     <ul>
      <% @am.errors.each do |k, v| %>
       <li><span class="qicon"><%= k %></span>:<span class="grey-info"><%= v.join("; ") %></span></li>
      <% end %>
     </ul>
+   </div>
   </div>
 </div>

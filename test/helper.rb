@@ -3,6 +3,7 @@ ENV['magpie'] = 'test'
 
 require 'rubygems'
 require 'magpie'
+require 'hpricot'
 require 'yaml'
 require 'uri'
 require 'digest/md5'
