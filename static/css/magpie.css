@@ -1,0 +1,29 @@
+body {
+    font-family:arial,helvetica,clean,sans-serif;
+    font-size:12px;
+    font-size-adjust:none;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:1.231;
+}
+#wrap{width:910px;text-align:left;margin:0 auto;}
+.summary{background:#F0F3F5 none repeat scroll 0 0;margin-top:28px;padding:16px 22px 18px;;}
+p.strong{font-weight:bold;}
+#amount{color:#FF3300;font-size:30px;margin:0 5px;}
+#amount sub{font-size:14px;vertical-align:baseline;}
+.trade-title{margin:5px 0 0;}
+.summary p{font-size:14px;}
+#trade-list{padding-top:8px;}
+#trade-list dd{clear:both;left:70px;position:relative;top:-18px;}
+dt{font-weight:bold;}
+.Pad{padding-top:20px;}
+
+div#Info{border:1px solid #FFD0A8;}
+div.ErrorInfo{background:transparent url(/images/error.gif) repeat scroll 0 0}
+div#Info .ErrorInfo{background-color:#FFFFEE;background-position:20px 16px;background-repeat:no-repeat;width:auto;border:1px solid #FFF0A8}
+div#Info strong{margin-left:65px;font-size:18px;padding:25px 0 6px 3px;display:block;}
+div#Info ul{list-style-image:url(/images/q2.gif);margin:18px auto;width:480px; }
+div#Info li{font-size:16px;}
+span.grey-info{color:#666666;font-size:13px;line-height:22px;margin-left:6px;}
+#c-u{width:720px;margin:auto;}
