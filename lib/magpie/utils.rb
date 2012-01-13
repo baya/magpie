@@ -10,11 +10,11 @@ module Magpie
     def dig(env)
       status, header, body = @app.call env
       req = Rack::Request.new env
-      doc = send_req_to @pay_gateway, req
-      red_text = (doc/@red_xpath).inner_text
-      red_text = (doc/@error_xpath).inner_text if red_text.blank? and @error_xpath
-      red_text = Iconv.iconv("UTF-8//IGNORE","GBK//IGNORE", red_text).to_s
-      return status, header, body, req, red_text
+      # doc = send_req_to @pay_gateway, req
+      # red_text = (doc/@red_xpath).inner_text
+      # red_text = (doc/@error_xpath).inner_text if red_text.blank? and @error_xpath
+      # red_text = Iconv.iconv("UTF-8//IGNORE","GBK//IGNORE", red_text).to_s
+      return status, header, body, req
     end
 
     def send_req_to(gw, req)

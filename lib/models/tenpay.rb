@@ -8,13 +8,34 @@ module Magpie
 
     set_accounts_kind :tenpay
 
-    attr_accessor :cmdno, :date, :bank_type, :desc, :purchaser_id, :bargainor_id, :transaction_id, :sp_billno
+    attr_accessor :cmdno,
+    :date,
+    :bank_type,
+    :desc,
+    :purchaser_id,
+    :bargainor_id,
+    :transaction_id,
+    :sp_billno,
+    :total_fee,
+    :fee_type,
+    :return_url,
+    :attach,
+    :spbill_create_ip,
+    :sign
 
-    attr_accessor :total_fee, :fee_type, :return_url, :attach, :spbill_create_ip, :sign
-
-    goose_validate_presence_of :cmdno, :date, :bank_type, :desc, :bargainor_id, :transaction_id, :sp_billno
-
-    goose_validate_presence_of :total_fee, :fee_type, :return_url, :attach, :spbill_create_ip, :sign
+    goose_validate_presence_of :cmdno,
+    :date,
+    :bank_type,
+    :desc,
+    :bargainor_id,
+    :transaction_id,
+    :sp_billno,
+    :total_fee,
+    :fee_type,
+    :return_url,
+    :attach,
+    :spbill_create_ip,
+    :sign
 
     goose_validate_format_of :transaction_id,
     :allow_blank => true,
@@ -26,9 +47,12 @@ module Magpie
     :with        => /^\d+$/,
     :msg         => "格式错误,只能为数字,以分为单位,不允许包含任何字符"
 
+    IP_FORMAT = /\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/
+
     goose_validate_format_of :spbill_create_ip,
     :allow_blank => true,
-    :with => /\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/
+    :with        => IP_FORMAT,
+    :msg         => 'ip地址格式错误'
 
     goose_validate_length_of :sp_billno, :max_length => 28, :allow_blank => true, :msg => "长度错误,应该在28个字符内"
 
@@ -36,7 +60,7 @@ module Magpie
       am.errors[:fee_type] << "目前只支持人民币,请填1" unless am.fee_type.blank? or am.fee_type.to_s == "1"
       am.errors[:sign] << "sign签名必须大写" unless am.sign.blank? or am.sign.upcase == am.sign
       am.errors[:sign] << "invalid sign" if am.invalid_request_sign?
-      am.errors[:bargainor_id] << "商户号不存在" if !am.partner.blank? and am.missing_partner?
+      am.errors[:bargainor_id] << "商户编号不存在" if !am.partner.blank? and am.missing_partner?
     end
 
 

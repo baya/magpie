@@ -10,12 +10,13 @@ class ChinabankTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    Magpie::BIRD_APP
+    Magpie::SNAKE_APP
   end
 
   def setup
-    @gateway = "/chinabank/PayGate"
-    @params = { "v_mid"       => "20000400",
+    @gateway = "/chinabank"
+    @params = {
+      "v_mid"       => "20000400",
       "v_oid"       => "12345678",
       "v_amount"    => "1.00",
       "v_moneytype" => "CNY",
@@ -28,38 +29,32 @@ class ChinabankTest < Test::Unit::TestCase
   def test_return_xml
     post @gateway, @params
     assert last_response.ok?
-    assert last_response.body.include? "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-    assert last_response.headers["Content-type"], "text/xml"
-    assert last_response.body =~ /<final>.*<\/final>/
+    assert last_response.headers["Content-type"], "text/html"
   end
 
   def test_validates_prensence
     post @gateway, @params.dup.clear
-    assert last_response.body.include? "<v_mid>can't be blank</v_mid>"
-    assert last_response.body.include? "<v_oid>can't be blank</v_oid>"
-    assert last_response.body.include? "<v_amount>can't be blank</v_amount>"
-    assert last_response.body.include? "<v_moneytype>can't be blank</v_moneytype>"
-    assert last_response.body.include? "<v_url>can't be blank</v_url>"
-    assert last_response.body.include? "<v_md5info>can't be blank</v_md5info>"
+    assert last_response.body.include? "can't be blank"
   end
 
   def test_validates_length
     post @gateway, @params.merge("v_oid" => "a" * 68,
                                  "v_url" => "http://test.com/" + "a" * 200)
-    assert last_response.body.include? "<v_oid>is too long (maximum is 64 characters)</v_oid>"
-    assert last_response.body.include? "<v_url>is too long (maximum is 200 characters)</v_url>"
+    assert last_response.body.include? v_oid_too_long_error_msg
+    assert last_response.body.include? v_url_too_long_error_msg
   end
+
 
   def test_validates_partner
     post @gateway, @params.merge("v_mid" => "fake123")
-    assert last_response.body.include? "<v_mid>商户编号不存在</v_mid>"
+    assert last_response.body.include? v_mid_not_exist_error_msg
     post @gateway, @params.merge("v_mid" => "20000400")
-    assert !last_response.body.include?("<v_mid>商户编号不存在</v_mid>")
+    assert !last_response.body.include?(v_mid_not_exist_error_msg)
   end
 
   def test_validates_numericality
     post @gateway, @params.merge("v_amount" => -1.00)
-    assert last_response.body.include? "<v_amount>format should be Number(6, 2)</v_amount>"
+    assert last_response.body.include? v_amount_format_error_msg
   end
 
   def test_validates_sign
@@ -67,11 +62,12 @@ class ChinabankTest < Test::Unit::TestCase
     text = @params["v_amount"]+@params["v_moneytype"]+@params["v_oid"]+@params["v_mid"]+@params["v_url"]
     md5_str = Digest::MD5.hexdigest(text+"errorkey")
     post @gateway, @params.merge("v_md5info" => md5_str)
-    assert last_response.body.include?("<sign>invalid v_md5info</sign>")
+    assert last_response.body.include?(invalid_md5_error_msg)
     md5_str = Digest::MD5.hexdigest(text+account[1])
     post @gateway, @params.merge("v_md5info" => md5_str)
-    assert !last_response.body.include?("<sign>invalid v_md5info</sign>")
+    assert !last_response.body.include?(invalid_md5_error_msg)
   end
+
 
   def test_key
     am = Magpie::ChinabankModel.new(@params)
@@ -99,5 +95,25 @@ class ChinabankTest < Test::Unit::TestCase
     assert !am.notify.has_key?("remark1")
   end
 
+
+  def v_oid_too_long_error_msg
+    "is too long (maximum is 64 characters)"
+  end
+
+  def v_url_too_long_error_msg
+    "is too long (maximum is 200 characters)"
+  end
+
+  def v_mid_not_exist_error_msg
+    "商户编号不存在"
+  end
+
+  def v_amount_format_error_msg
+    "format should be Number(6, 2)"
+  end
+
+  def invalid_md5_error_msg
+    "invalid v_md5info"
+  end
 
 end

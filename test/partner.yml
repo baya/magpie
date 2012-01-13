@@ -1,8 +1,8 @@
 alipay:
-- [test123, secret123]
+- ["test123", "secret123"]
 
 chinabank:
-- ["20000400", secret456]
+- ["20000400", "secret456"]
 
 tenpay:
-- ["314159", secret789]
+- ["314159", "secret789"]

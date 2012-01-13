@@ -78,7 +78,8 @@ module Magpie
         :AccessLog   => [],
         :yml         => "magpie.yml",
         :mode        => "snake",
-        :log         => "magpie.log"
+        :log         => "magpie.log",
+        :config      => "config.ru"
       }
     end
 

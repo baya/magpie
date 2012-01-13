@@ -6,7 +6,6 @@ require 'helper'
 class ObjectTest < Test::Unit::TestCase
 
   def test_blank
-    assert "         ".blank?
     assert nil.blank?
     assert [].blank?
     assert ({ }.blank?)

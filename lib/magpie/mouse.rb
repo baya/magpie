@@ -36,7 +36,7 @@ module Magpie
     end
 
     def missing_partner?
-      self.account == [] ? true : false
+      self.account == []
     end
 
   end
